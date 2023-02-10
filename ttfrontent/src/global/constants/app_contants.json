@@ -1,0 +1,20 @@
+{
+    "identity": "ID",
+    "defect": "Defect",
+    "userStory": "User Story",
+    "other": "other",
+    "changeRequest": "Change Request",
+    "feBackend": "FE/Backend",
+    "description": "Description",
+    "assigned": "Assigned",
+    "assignment": "assignment",
+    "date": "Date",
+    "to": "To",
+    "status": "Status",
+    "additional": "Additional",
+    "Comments": "comments",
+    "search": "Search",
+    "delete": "Delete",
+    "update": "Update"
+
+}
