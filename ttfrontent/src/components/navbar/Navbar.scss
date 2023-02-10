@@ -1,0 +1,38 @@
+@import "../../global/sass/index.scss";
+
+.pushable {
+    height: 100vh !important;
+}
+
+.ui.secondary.pointing.menu .active.item {
+    border-color: red !important;
+    color: red !important;
+    font-size: large !important;
+    font-weight: bold !important;
+}
+
+.ui.secondary.pointing.menu .item {
+    color: white !important;
+    font-size: large !important;
+    font-weight: bold !important;
+}
+
+// desktop nav
+.ui.secondary.pointing.menu {
+    height: 60px;
+    background-color: $darkerBrown;
+}
+
+// mobile nav
+.ui.inverted.top.fixed.menu {
+    background-color: $darkerBrown;
+}
+
+// mobile nav side bar
+.ui.inverted.vertical.labeled.icon.ui.overlay.left.visible.sidebar.menu {
+    background-color: $darkerBrown;
+}
+// mobile nav side bar - open and close
+.ui.inverted.vertical.labeled.icon.ui.overlay.left.animating.sidebar.menu {
+    background-color: $darkerBrown;
+}

@@ -1,6 +1,8 @@
+import React, { Fragment } from 'react';
+import { Menu } from 'semantic-ui-react';
 import NAME from '../../global/constants/app_contants.json';
 
-export const GeneralItem = props => {
+export const MenuItems = props => {
     const { item, handleItemClick } = props;
 
     return (

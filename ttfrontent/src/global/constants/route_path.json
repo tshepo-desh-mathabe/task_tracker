@@ -1,0 +1,6 @@
+{
+    "defect": "/defect",
+    "userStory": "/user-story",
+    "changeRequest": "/change-request",
+    "other": "/other"
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Sidebar, Menu, Icon } from 'semantic-ui-react';
 import { MenuItems } from './MenuItems';
+import './Navbar.scss';
 
 export const MobileNav = props => {
 
@@ -13,7 +14,7 @@ export const MobileNav = props => {
                 animation='overlay'
                 icon='labeled'
                 inverted
-                direction='right'
+                direction='left'
                 vertical
                 visible={visible}
             >

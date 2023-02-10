@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import number from '../global/constants/number_constants.json';
+import APP_CONST from '../global/constants/app_contants.json';
+import NUMBER from '../global/constants/number_constants.json';
 
 function getDimensions() {
   const { innerWidth: width, innerHeight: height } = window;
@@ -16,15 +17,15 @@ function WindowDimensions() {
       setWindowDimensions(getDimensions());
     }
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener(APP_CONST.screenResize, handleResize);
+    return () => window.removeEventListener(APP_CONST.screenResize, handleResize);
   }, []);
 
   return windowDimensions;
 }
 
 export default function isMobileByWidth() {
-  if (WindowDimensions().width <= number.mobileScreenSize) {
+  if (WindowDimensions().width <= NUMBER.mobileScreenSize) {
     return true;
   }
   return false
