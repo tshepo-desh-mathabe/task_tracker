@@ -7,6 +7,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-public class UserStoryDto extends TaskDto {
+public class UserStoryDto {
     private Long id;
+    private TaskDto taskDto;
 }
