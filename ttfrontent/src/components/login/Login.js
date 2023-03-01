@@ -4,7 +4,7 @@ import { dataChecker, emailRegex } from '../../utils/Validator';
 import { LoginForm } from './LogInForm';
 import AppMessage from '../../utils/message/AppMessage';
 import PageLoader from '../../utils/PageLoader/PageLoader';
-import {DisplayWrapper, DisplayFormWrapper} from '../../utils/wrapper/index';
+import { DisplayWrapper, DisplayFormWrapper } from '../../utils/wrapper/index';
 import FORM_CONST from '../../utils/constants/form_constants.json';
 import APP_CONST from '../../utils/constants/app_contants.json';
 
@@ -76,7 +76,7 @@ export class Login extends Component {
         }
     }
 
-    httpCall(state) {}
+    httpCall(state) { }
 
     DisplayElement = () => {
         const state = this.state;

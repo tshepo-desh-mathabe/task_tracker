@@ -1,4 +1,4 @@
-@import "../../global/sass/index.scss";
+@import "../../utils/sass/index.scss";
 
 .pushable {
     height: 100vh !important;
@@ -23,19 +23,8 @@
     background-color: $darkerBrown;
 }
 
-// mobile nav
-<<<<<<< Updated upstream
-.ui.inverted.top.fixed.menu {
-    background-color: $darkerBrown;
-}
-
 // mobile nav side bar
-.ui.inverted.vertical.labeled.icon.ui.overlay.left.visible.sidebar.menu {
-    background-color: $darkerBrown;
-}
-=======
 // mobile nav side bar
->>>>>>> Stashed changes
 // mobile nav side bar - open and close
 .ui.inverted.top.fixed.menu,
 .ui.inverted.vertical.labeled.icon.ui.overlay.left.visible.sidebar.menu,

@@ -3,9 +3,9 @@ import { Container } from 'semantic-ui-react';
 import history from '../../utils/BrowserHistory';
 import { DesktopNav } from './DesktopNav';
 import { MobileNav } from './MobileNav';
-import APP_CONST from '../../global/constants/app_contants.json';
-import PATH from '../../global/constants/route_path.json';
-import NUMBER from '../../global/constants/number_constants.json';
+import APP_CONST from '../../utils/constants/app_contants.json';
+import PATH from '../../utils/constants/route_path.json';
+import NUMBER from '../../utils/constants/number_constants.json';
 
 class NavigationBar extends Component {
     constructor(props) {

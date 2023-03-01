@@ -1,4 +1,4 @@
-import APP_CONST from '../../global/constants/app_contants.json';
+import APP_CONST from '../../utils/constants/app_contants.json';
 
 const Footer = () => {
     return (

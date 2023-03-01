@@ -1,9 +1,0 @@
-{
-    "apBaseUrl": "http://localhost:9095",
-    "httpRequestType": {
-        "get": "GET",
-        "post": "POST",
-        "put": "PUT",
-        "delete": "DELETE"
-    }
-}

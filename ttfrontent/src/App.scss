@@ -1,4 +1,4 @@
-@import "./global/sass/index.scss";
+@import "./utils/sass/index.scss";
 
 .app {
   background-color: $backgroundColor;
@@ -19,8 +19,6 @@
 // Semantic UI has this set to 5em
 .ui.container {
   margin-top: 0 !important;
-<<<<<<< Updated upstream
-=======
 }
 
 // global input color
@@ -37,5 +35,4 @@
 
 .ui.inverted.green.button {
   color: #d67c1c !important;
->>>>>>> Stashed changes
 }

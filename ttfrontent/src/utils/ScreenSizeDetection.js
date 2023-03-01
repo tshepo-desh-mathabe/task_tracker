@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import APP_CONST from '../global/constants/app_contants.json';
-import NUMBER from '../global/constants/number_constants.json';
+import APP_CONST from '../utils/constants/app_contants.json';
+import NUMBER from '../utils/constants/number_constants.json';
 
 function getDimensions() {
   const { innerWidth: width, innerHeight: height } = window;
