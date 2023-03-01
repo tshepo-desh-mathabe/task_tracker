@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+<<<<<<< Updated upstream:ttfrontent/src/index.css
+=======
+
+// on selection
+::selection {
+  background-color: rebeccapurple !important;
+  color: white !important;
+}
+
+.ui.segment {
+  background: $darkerBrown;
+}
+
+.ui.form .field>label {
+  color: white !important;
+  font-size: medium !important;
+}
+>>>>>>> Stashed changes:ttfrontent/src/index.scss

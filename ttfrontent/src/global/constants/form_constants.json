@@ -1,0 +1,16 @@
+{
+    "password": "Please enter password...",
+    "label": {
+        "email": "Email:",
+        "password": "Password:"
+    },
+    "placeholder": {
+        "email": "john.peter@gmail.com"
+    },
+    "error": {
+        "badEmail": "Bad Email Format...",
+        "emailAddress": "Please make sure your email is correct...",
+        "emptyFields": "Empty Fields",
+        "fillEmptyFields": "Please fill the required fields..."
+    }
+}

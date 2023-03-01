@@ -1,0 +1,13 @@
+.ui.header {
+    color: white !important;
+  }
+  
+  .display-form-header-icon {
+    display: flex;
+    justify-content: center;
+  }
+
+  .ui.form .field:last-child {
+    display: flex;
+    justify-content: right;
+  }

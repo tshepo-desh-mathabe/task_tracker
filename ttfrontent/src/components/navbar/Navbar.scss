@@ -5,8 +5,8 @@
 }
 
 .ui.secondary.pointing.menu .active.item {
-    border-color: red !important;
-    color: red !important;
+    border-color: #d67c1c !important;
+    color: #d67c1c !important;
     font-size: large !important;
     font-weight: bold !important;
 }
@@ -24,6 +24,7 @@
 }
 
 // mobile nav
+<<<<<<< Updated upstream
 .ui.inverted.top.fixed.menu {
     background-color: $darkerBrown;
 }
@@ -32,7 +33,12 @@
 .ui.inverted.vertical.labeled.icon.ui.overlay.left.visible.sidebar.menu {
     background-color: $darkerBrown;
 }
+=======
+// mobile nav side bar
+>>>>>>> Stashed changes
 // mobile nav side bar - open and close
+.ui.inverted.top.fixed.menu,
+.ui.inverted.vertical.labeled.icon.ui.overlay.left.visible.sidebar.menu,
 .ui.inverted.vertical.labeled.icon.ui.overlay.left.animating.sidebar.menu {
     background-color: $darkerBrown;
 }

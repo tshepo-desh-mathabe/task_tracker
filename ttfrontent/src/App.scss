@@ -7,11 +7,35 @@
   // flex-direction: column;
   color: white;
 }
-.body {
+.mobile-body-content {
   padding-top: 5em !important;
 }
+
+.desktop-body-content {
+  padding-top: 8em !important;
+}
+
 
 // Semantic UI has this set to 5em
 .ui.container {
   margin-top: 0 !important;
+<<<<<<< Updated upstream
+=======
+}
+
+// global input color
+.ui.input>input {
+  background: $backgroundColor;
+  color: white !important;
+  border-color: #00000000 !important
+}
+
+.ui.input {
+  color: white !important;
+}
+
+
+.ui.inverted.green.button {
+  color: #d67c1c !important;
+>>>>>>> Stashed changes
 }

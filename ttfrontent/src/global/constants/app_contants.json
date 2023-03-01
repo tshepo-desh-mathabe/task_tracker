@@ -17,6 +17,7 @@
     "delete": "Delete",
     "update": "Update",
     "screenResize": "resize",
-    "allRightsReserved": "All Rights Reserved."
-
+    "allRightsReserved": "All Rights Reserved.",
+    "signin": "Sign In",
+    "userSession": "USER_SESSION"
 }
