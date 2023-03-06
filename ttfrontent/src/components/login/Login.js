@@ -3,10 +3,11 @@ import { Container } from 'semantic-ui-react';
 import { dataChecker, emailRegex } from '../../utils/Validator';
 import { LoginForm } from './LogInForm';
 import AppMessage from '../../utils/message/AppMessage';
-import PageLoader from '../../utils/PageLoader/PageLoader';
+import PageLoader from '../../utils/page_loader/PageLoader';
 import { DisplayWrapper, DisplayFormWrapper } from '../../utils/wrapper/index';
 import FORM_CONST from '../../utils/constants/form_constants.json';
 import APP_CONST from '../../utils/constants/app_contants.json';
+import { signIn } from '../../utils/api/UserService';
 
 const error = FORM_CONST.error;
 
@@ -76,7 +77,44 @@ export class Login extends Component {
         }
     }
 
-    httpCall(state) { }
+    httpCall(state) {
+        this.setState({
+            sendingFlag: true,
+            // showLoader: { flag: true, content: APP_CONST.pleaseWaitWhileCompletion }
+        });
+
+        const dataToBeSent = {
+            emailAddressDetails: { emailAddress: state.emailAddress },
+            password: state.password
+        }
+
+        signIn(dataToBeSent).then(res => {
+            console.log('--->>>>', res);
+            // const resData = res.data;
+            // if (!resData.success) {
+            //     this.setState({
+            //         showMessage: {
+            //             flag: true, icon: 'exclamation triangle',
+            //             topic: APP_CONST.oopsie, content: resData.message
+            //         },
+            //         showLoader: { flag: false, content: '' }
+            //     });
+            // } else {
+            //     const data = resData.message;
+            // }
+        })
+        // .catch(err => {
+        //     console.log('Error -->', err);
+        //     this.setState({
+        //         showLoader: { flag: false, content: '' },
+        //         showMessage: {
+        //             flag: true, icon: 'exclamation triangle',
+        //             topic: APP_CONST.oopsie, content: APP_CONST.defaultError
+        //         }
+        //     });
+        // });
+
+    }
 
     DisplayElement = () => {
         const state = this.state;

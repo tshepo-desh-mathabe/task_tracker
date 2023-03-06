@@ -35,7 +35,7 @@ public class UserMapperImpl implements IModelMapper<User, UserDto> {
                 destination.setName(user.getFirstName());
                 destination.setSurname(user.getLastName());
                 destination.setPwd(user.getPassword());
-                destination.setEmail(emailMapper.toDto(user.getEmailAddress()));
+                destination.setEmailAddress(emailMapper.toDto(user.getEmailAddress()));
                 destination.setRoles(userRoleMapper.toDto(user.getRoles()));
 
                 return destination;
@@ -54,7 +54,7 @@ public class UserMapperImpl implements IModelMapper<User, UserDto> {
                 destination.setFirstName(userDto.getName());
                 destination.setLastName(userDto.getSurname());
                 destination.setPassword(userDto.getPwd());
-                destination.setEmailAddress(emailMapper.toEntity(userDto.getEmail()));
+                destination.setEmailAddress(emailMapper.toEntity(userDto.getEmailAddress()));
                 destination.setRoles(userRoleMapper.toEntity(userDto.getRoles()));
 
                 return destination;

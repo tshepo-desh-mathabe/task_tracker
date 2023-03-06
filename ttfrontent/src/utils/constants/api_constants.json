@@ -1,5 +1,5 @@
 {
-    "apBaseUrl": "http://localhost:9095",
+    "apBaseUrl": "http://localhost:9095/ditrax",
     "user": {
         "base": "/user",
         "signIn": "/sign-in",

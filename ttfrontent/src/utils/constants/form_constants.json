@@ -11,6 +11,7 @@
         "badEmail": "Bad Email Format...",
         "emailAddress": "Please make sure your email is correct...",
         "emptyFields": "Empty Fields",
-        "fillEmptyFields": "Please fill the required fields..."
+        "fillEmptyFields": "Please fill the required fields...",
+        "defaultError": "An error occured!\nPlease try again later..."
     }
 }

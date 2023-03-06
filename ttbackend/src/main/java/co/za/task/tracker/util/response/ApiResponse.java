@@ -10,13 +10,14 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@AllArgsConstructor
+//@AllArgsConstructor
 public class ApiResponse<T> {
 
     private boolean success;
     private T message;
 
-    public ApiResponse(T message) {
+    ApiResponse(boolean success, T message) {
+        this.success = success;
         this.message = message;
     }
 }

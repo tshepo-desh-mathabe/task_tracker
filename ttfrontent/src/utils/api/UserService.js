@@ -4,6 +4,7 @@ import { httpRequest } from './helper/Request';
 const basePath = API.apBaseUrl;
 
 export async function signIn(requestBody) {
+    console.log('--->>>', API.httpRequestType.post);
     return httpRequest(API.httpRequestType.post, combinedPaths(basePath, API.signIn), requestBody);
 }
 

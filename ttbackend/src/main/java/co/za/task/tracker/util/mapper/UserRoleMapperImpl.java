@@ -5,10 +5,11 @@ import co.za.task.tracker.entity.dto.UserRoleDto;
 import co.za.task.tracker.util.constants.RoleType;
 import co.za.task.tracker.util.helper.IFieldPropertyMapper;
 import co.za.task.tracker.util.helper.IModelMapper;
+import co.za.task.tracker.util.helper.ListMapperHelper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserRoleMapperImpl implements IModelMapper<UserRole, UserRoleDto> {
+public class UserRoleMapperImpl extends ListMapperHelper<UserRole, UserRoleDto> {
 
     @Override
     public UserRole toEntity(UserRoleDto dto) {
@@ -24,7 +25,7 @@ public class UserRoleMapperImpl implements IModelMapper<UserRole, UserRoleDto> {
         if (userRole != null) {
             IFieldPropertyMapper<UserRoleDto> mapper = destination -> {
                 destination.setUserRoleId(userRole.getUserRoleId());
-                destination.setRole(String.valueOf(userRole.getRoleType()));
+                destination.setType(String.valueOf(userRole.getRoleType()));
 
                 return destination;
             };
@@ -39,7 +40,7 @@ public class UserRoleMapperImpl implements IModelMapper<UserRole, UserRoleDto> {
         if (userRoleDto != null) {
             IFieldPropertyMapper<UserRole> mapper = destination -> {
                 destination.setUserRoleId(userRoleDto.getUserRoleId());
-                destination.setRoleType(RoleType.valueOf(userRoleDto.getRole()));
+                destination.setRoleType(RoleType.valueOf(userRoleDto.getType()));
 
                 return destination;
             };

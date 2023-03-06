@@ -1,62 +1,54 @@
 package co.za.task.tracker.service.helper;
 
+import co.za.task.tracker.entity.User;
 import co.za.task.tracker.entity.dto.UserDto;
-import co.za.task.tracker.payload.LoggedInUserSummary;
+import co.za.task.tracker.entity.dto.UserRoleDto;
+import co.za.task.tracker.repository.IUserRepository;
 import co.za.task.tracker.util.constants.AppConstant;
+import co.za.task.tracker.util.constants.Flag;
+import co.za.task.tracker.util.helper.IModelMapper;
 import co.za.task.tracker.util.property_fetcher.IPropertyFetcher;
 import co.za.task.tracker.util.response.ResponseApiWrapper;
-import co.za.task.tracker.util.security.JwtTokenProvider;
-import co.za.task.tracker.util.security.UserPrincipal;
-import co.za.task.tracker.util.service.IUserService;
+import co.za.task.tracker.util.service.AUserService;
+import co.za.task.tracker.util.service.ICrudFindService;
 import co.za.task.tracker.util.validator.IValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.util.Set;
+
 @Component
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl extends AUserService {
     @Autowired
-    private JwtTokenProvider tokenProvider;
+    private PasswordEncoder passwordEncoder;
     @Autowired
-    private IValidator validator;
+    private IUserRepository userRepository;
     @Autowired
-    private AuthenticationManager authenticationManager;
+    private IValidator<Boolean, String> validator;
     @Autowired
     private IPropertyFetcher<AppConstant> propertyFetcher;
+    @Autowired
+    private IModelMapper<User, UserDto> mapper;
+    @Autowired
+    private ICrudFindService<Set<UserRoleDto>, Set<UserRoleDto>> userRoleFindService;
 
-    public ResponseEntity<?> signIn(UserDto payload) {
-        if (!validator.isValidEmailAddress(payload.getEmail().getEmail())) {
-            return ResponseApiWrapper.badRequest(AppConstant.BAD_EMAIL_FORMAT);
+    @Override
+    public ResponseEntity<?> saveData(UserDto userRequest) {
+
+        var roles = userRoleFindService.readData(userRequest.getRoles());
+        if (roles.isEmpty()) return ResponseApiWrapper.badRequest("Role is required"); // todo - stop hardcoding
+        else userRequest.setRoles(roles);
+        if (validator.checkData(userRequest.getEmailAddress().getEmail(), Flag.IS_EXISTING_EMAIL)) {
+            return ResponseApiWrapper.badRequest(propertyFetcher.getProperty(AppConstant.EMAIL_EXISTS));
         }
 
-        Authentication authentication;
-        try {
-            authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(
-                            payload.getEmail().getEmail(),
-                            payload.getPwd()
-                    )
-            );
-        } catch (Exception ex) {
-            return ResponseApiWrapper.badRequest(propertyFetcher.getProperty(AppConstant.BAD_LOGIN_CREDENTIALS));
-        }
+        userRequest.setPwd(passwordEncoder.encode(userRequest.getPwd()));
+        var user = mapper.toEntity(userRequest);
+        userRepository.save(user);
 
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwtToken = tokenProvider.generateToken(authentication);
-        return ResponseApiWrapper.okRequest(getLoggedUser(jwtToken));
+        return ResponseApiWrapper.okRequest(propertyFetcher.getProperty(AppConstant.SAVE_SUCCESS_MESSAGE));
     }
-
-    private LoggedInUserSummary getLoggedUser(String token) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        if (authentication.getPrincipal() instanceof UserPrincipal principal) {
-            return new LoggedInUserSummary(principal.name(), principal.surname(), token, authentication.getAuthorities());
-        }
-        return null;
-    }
-
 }
+

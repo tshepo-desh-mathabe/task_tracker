@@ -38,5 +38,5 @@ public class EntityConstants {
     public static final String ADDITIONAL_COMMENTS = "ADDITIONAL_COMMENTS";
     public static final String IS_BACKEND = "IS_BACKEND";
     public static final String IS_DATABASE = "IS_DATABASE";
-    public static final String EMAIL = "EMAIL";
+    public static final String ADDRESS = "ADDRESS";
 }

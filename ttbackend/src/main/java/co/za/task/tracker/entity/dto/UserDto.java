@@ -1,15 +1,15 @@
 package co.za.task.tracker.entity.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Set;
 
 @Setter
 @Getter
-@NoArgsConstructor
 public class UserDto {
     private Long id;
     @NotBlank
@@ -19,7 +19,7 @@ public class UserDto {
     @NotBlank
     private String pwd;
     @NotBlank
-    private EmailAddressDto email;
+    private EmailAddressDto emailAddress;
     @NotBlank
     private Set<UserRoleDto> roles;
 }

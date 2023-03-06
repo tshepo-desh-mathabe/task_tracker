@@ -1,0 +1,16 @@
+{
+  "name": "Desh",
+  "surname": "Miro",
+  "pwd": "1234",
+  "emailAddress": {
+    "email": "blinduryn@gmail.com"
+  },
+  "roles": [
+    {
+      "type": "ROLE_USER"
+    },
+    {
+      "type": "ROLE_ADMIN"
+    }
+  ]
+}

@@ -4,39 +4,59 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0f9d85f-5e9a-461d-b7f8-6fadac25f2a2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ttfrontent/src/components/login/LogInForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ttfrontent/src/components/login/Login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ttfrontent/src/utils/PageLoader/PageLoader.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ttfrontent/src/utils/PageLoader/PageLoader.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ttfrontent/src/utils/Validator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ttfrontent/src/utils/api/UserService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ttfrontent/src/utils/api/helper/Request.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ttfrontent/src/utils/message/AppMessage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ttfrontent/src/utils/message/Message.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ttfrontent/src/utils/store/BrowserSession.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ttfrontent/src/utils/wrapper/DisplayFormWrapper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ttfrontent/src/utils/wrapper/DisplayWrapper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ttfrontent/src/utils/wrapper/Index.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ttfrontent/src/utils/wrapper/index.js" afterDir="false" />
+    <list default="true" id="6db40490-e665-4679-a52d-c67e62c76cac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/TaskTrackerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/TaskTrackerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/entity/EmailAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/entity/EmailAddress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/entity/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/entity/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/entity/dto/UserRoleDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/entity/dto/UserRoleDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/payload/LoggedInUserSummary.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/service/helper/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/service/helper/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/constants/EntityConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/constants/EntityConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/constants/ServicePath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/constants/ServicePath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/mapper/UserMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/mapper/UserMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/mapper/UserRoleMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/mapper/UserRoleMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/response/ApiResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/response/ApiResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/security/CurrentUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/security/CustomUserDetailsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/security/JwtAuthenticationEntryPoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/security/JwtTokenProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/security/UserPrincipal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/security/configuration/AuditingConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/security/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/security/configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/service/AUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/validator/IValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/validator/IValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/validator/ValidatorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/validator/ValidatorImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/co/za/task/tracker/TaskTrackerApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/co/za/task/tracker/TaskTrackerApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ttfrontent/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../ttfrontent/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ttfrontent/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ttfrontent/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ttfrontent/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../ttfrontent/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ttfrontent/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ttfrontent/src/components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ttfrontent/src/components/navbar/Navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../ttfrontent/src/components/navbar/Navbar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ttfrontent/src/global/constants/api_constants.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ttfrontent/src/global/constants/api_constants.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ttfrontent/src/global/constants/app_contants.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ttfrontent/src/global/constants/app_contants.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ttfrontent/src/global/constants/form_constants.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ttfrontent/src/global/constants/form_constants.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ttfrontent/src/global/constants/route_path.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ttfrontent/src/global/constants/route_path.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ttfrontent/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../ttfrontent/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ttfrontent/src/utils/app_routes/AppRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ttfrontent/src/utils/app_routes/AppRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ttfrontent/src/components/login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ttfrontent/src/components/login/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ttfrontent/src/utils/PageLoader/PageLoader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ttfrontent/src/utils/PageLoader/PageLoader.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ttfrontent/src/utils/api/UserService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ttfrontent/src/utils/api/UserService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ttfrontent/src/utils/constants/api_constants.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ttfrontent/src/utils/constants/api_constants.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ttfrontent/src/utils/constants/app_contants.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ttfrontent/src/utils/constants/app_contants.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ttfrontent/src/utils/constants/form_constants.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ttfrontent/src/utils/constants/form_constants.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Enum" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -44,62 +64,82 @@
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
         <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="$PROJECT_DIR$/../../../../../../Tools/apache-maven-3.6.3" />
+        <option name="mavenHome" value="Use Maven wrapper" />
         <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2MLrhOm8KBS4afO0rhNM5YK7vjW" />
+  <component name="ProjectId" id="2MYjeYLmwZsOowcL0pimZBRG1iR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "MavenSettings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/XY26031/Documents/ProjectXs/task_tracker/ttbackend/src/main/resources&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\XY26031\Documents\ProjectXs\task_tracker\ttbackend\src\main\resources" />
+      <recent name="C:\Users\XY26031\Documents\ProjectXs\task_tracker\ttbackend\src\main\java\co\za\task\tracker" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="co.za.task.tracker.service.helper" />
+      <recent name="co.za.task.tracker.repository" />
+      <recent name="co.za.task.tracker.util.service" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
+    <configuration name="TaskTrackerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="co.za.task.tracker.TaskTrackerApplication" />
       <module name="ttbackend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="co.za.task.tracker.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="ttbackend" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TaskTrackerApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e0f9d85f-5e9a-461d-b7f8-6fadac25f2a2" name="Changes" comment="" />
-      <created>1677557830763</created>
+      <changelist id="6db40490-e665-4679-a52d-c67e62c76cac" name="Changes" comment="" />
+      <created>1677951531172</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1677557830763</updated>
+      <updated>1677951531172</updated>
     </task>
     <servers />
   </component>
@@ -113,5 +153,26 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/co/za/task/tracker/util/security/JwtService.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/co/za/task/tracker/controller/UserController.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/co/za/task/tracker/service/helper/UserRoleImpl.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

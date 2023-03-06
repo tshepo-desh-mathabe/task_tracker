@@ -19,5 +19,8 @@
     "screenResize": "resize",
     "allRightsReserved": "All Rights Reserved.",
     "signin": "Sign In",
-    "userSession": "USER_SESSION"
+    "userSession": "USER_SESSION",
+    "pleaseWaitWhileCompletion": "Please wait until completion",
+    "defaultError": "An error occured!\nPlease try again later...",
+    "oopsie": "Oopsie"
 }

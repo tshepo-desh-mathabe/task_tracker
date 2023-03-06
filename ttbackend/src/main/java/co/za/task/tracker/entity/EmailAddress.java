@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = EntityConstants.EMAIL_ADDRESS, uniqueConstraints = {
         @UniqueConstraint(columnNames = {
-                EntityConstants.EMAIL
+                EntityConstants.ADDRESS
         })
 })
 public class EmailAddress {
@@ -22,6 +22,6 @@ public class EmailAddress {
     private Long emailId;
 
     @JsonIgnore
-    @Column(name = EntityConstants.EMAIL, length = 150, nullable = false)
+    @Column(name = EntityConstants.ADDRESS, length = 150, nullable = false)
     private String address;
 }
