@@ -10,7 +10,8 @@ const Footer = () => {
             textAlign: 'center',
             padding: '12px',
             backgroundColor: '#2a1f11',
-            zIndex: 1
+            zIndex: 1,
+            color: 'white'
         }}>
             <p><b>&copy; {APP_CONST.allRightsReserved}</b></p>
         </footer>

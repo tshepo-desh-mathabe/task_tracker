@@ -1,20 +1,16 @@
 @import "./utils/sass/index.scss";
 
-.app {
+.desktop-body-content, .login-form {
   background-color: $backgroundColor;
   min-height: 100vh;
   // display: flex;
   // flex-direction: column;
   color: white;
 }
-.mobile-body-content {
-  padding-top: 5em !important;
-}
 
 .desktop-body-content {
   padding-top: 8em !important;
 }
-
 
 // Semantic UI has this set to 5em
 .ui.container {
@@ -30,9 +26,4 @@
 
 .ui.input {
   color: white !important;
-}
-
-
-.ui.inverted.green.button {
-  color: #d67c1c !important;
 }

@@ -1,7 +1,7 @@
 {
-    "apBaseUrl": "http://localhost:9095/ditrax",
+    "apiBaseUrl": "http://localhost:9095",
     "user": {
-        "base": "/user",
+        "base": "/auth",
         "signIn": "/sign-in",
         "signOut": "/log-out",
         "currentUser": "/current-logged"

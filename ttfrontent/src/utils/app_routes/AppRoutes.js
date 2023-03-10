@@ -10,7 +10,7 @@ export function AppRoutes() {
     return (
         <Routes>
             <Route exact path={PATH.signIn} element={<page.Login />} />
-            <Route exact path={PATH.analysis} element={<page.Home />} />
+            <Route exact path={PATH.home} element={<page.Home />} />
             <Route path={PATH.defect} element={<page.Defect />} />
         </Routes>
     );

@@ -1,4 +1,4 @@
-import { Form, Button, Segment, Header, Icon } from 'semantic-ui-react';
+import { Form, Button, Card, Header, Icon } from 'semantic-ui-react';
 import './Index.scss';
 
 export const DisplayFormWrapper = props => {
@@ -6,7 +6,7 @@ export const DisplayFormWrapper = props => {
     const { headerIcon, headerName, formData, children, buttonIcon, buttonName } = props;
 
     return (
-        <Segment>
+        <>
             <div className='display-form-header-icon'>
                 <Header icon>
                     <Icon name={headerIcon} />
@@ -15,8 +15,9 @@ export const DisplayFormWrapper = props => {
             </div>
             <Form onSubmit={formData}>
                 {children}
+                <hr/>
                 <div className='submit-button'>
-                    <Form.Button inverted color='brown' animated>
+                    <Form.Button animated>
                         <Button.Content visible>{buttonName}</Button.Content>
                         <Button.Content hidden>
                             <Icon name={buttonIcon} />
@@ -24,6 +25,6 @@ export const DisplayFormWrapper = props => {
                     </Form.Button>
                 </div>
             </Form>
-        </Segment>
+        </>
     );
 }

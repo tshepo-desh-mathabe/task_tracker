@@ -8,6 +8,7 @@ import { DisplayWrapper, DisplayFormWrapper } from '../../utils/wrapper/index';
 import FORM_CONST from '../../utils/constants/form_constants.json';
 import APP_CONST from '../../utils/constants/app_contants.json';
 import { signIn } from '../../utils/api/UserService';
+import { setUserSession } from '../../utils/store/BrowserSession';
 
 const error = FORM_CONST.error;
 
@@ -21,7 +22,7 @@ const initialState = {
     },
     sendingFlag: false,
     emailAddress: '',
-    password: '',
+    password: ''
 };
 
 export class Login extends Component {
@@ -80,40 +81,42 @@ export class Login extends Component {
     httpCall(state) {
         this.setState({
             sendingFlag: true,
-            // showLoader: { flag: true, content: APP_CONST.pleaseWaitWhileCompletion }
+            showLoader: { flag: true, content: APP_CONST.pleaseWaitWhileCompletion }
         });
 
         const dataToBeSent = {
-            emailAddressDetails: { emailAddress: state.emailAddress },
+            email: state.emailAddress,
             password: state.password
         }
 
         signIn(dataToBeSent).then(res => {
-            console.log('--->>>>', res);
-            // const resData = res.data;
-            // if (!resData.success) {
-            //     this.setState({
-            //         showMessage: {
-            //             flag: true, icon: 'exclamation triangle',
-            //             topic: APP_CONST.oopsie, content: resData.message
-            //         },
-            //         showLoader: { flag: false, content: '' }
-            //     });
-            // } else {
-            //     const data = resData.message;
-            // }
-        })
-        // .catch(err => {
-        //     console.log('Error -->', err);
-        //     this.setState({
-        //         showLoader: { flag: false, content: '' },
-        //         showMessage: {
-        //             flag: true, icon: 'exclamation triangle',
-        //             topic: APP_CONST.oopsie, content: APP_CONST.defaultError
-        //         }
-        //     });
-        // });
+            const resData = res.data;
+            console.log(resData);
+            if (!resData.success) {
+                this.setState({
+                    showMessage: {
+                        flag: true, icon: 'exclamation triangle',
+                        topic: APP_CONST.oopsie, content: resData.message
+                    },
+                    showLoader: { flag: false, content: '' }
+                });
+            } else {
+                setUserSession(res.data.message);
 
+                this.setState({
+                    token: res.data.message,
+                    showLoader: { flag: false, content: '' }
+                });
+            }
+        }).catch(err => {
+            this.setState({
+                showLoader: { flag: false, content: '' },
+                showMessage: {
+                    flag: true, icon: 'exclamation triangle',
+                    topic: APP_CONST.oopsie, content: APP_CONST.defaultError
+                }
+            });
+        });
     }
 
     DisplayElement = () => {
@@ -131,10 +134,10 @@ export class Login extends Component {
             return <PageLoader loaderInfo={state.showLoader.content} />;
         } else {
             return (
-                <DisplayWrapper body={
+                <div className='auth'>
                     <RenderForm sendingFlag={state.sendingFlag} emailAddress={state.emailAddress}
                         password={state.password} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-                } />
+                </div>
             );
         }
     }
