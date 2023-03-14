@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 import { dataChecker, emailRegex } from '../../utils/Validator';
 import { LoginForm } from './LogInForm';
-import AppMessage from '../../utils/message/AppMessage';
+import Message from '../../utils/message/Message';
 import PageLoader from '../../utils/page_loader/PageLoader';
-import { DisplayWrapper, DisplayFormWrapper } from '../../utils/wrapper/index';
+import { DisplayFormWrapper } from '../../utils/wrapper/index';
 import FORM_CONST from '../../utils/constants/form_constants.json';
 import APP_CONST from '../../utils/constants/app_contants.json';
 import { signIn } from '../../utils/api/UserService';
@@ -123,7 +123,7 @@ export class Login extends Component {
         const state = this.state;
 
         if (state.showMessage.flag) {
-            return <AppMessage
+            return <Message
                 iconName={state.showMessage.icon}
                 isOpen={state.showMessage.flag}
                 headingInfo={state.showMessage.topic}

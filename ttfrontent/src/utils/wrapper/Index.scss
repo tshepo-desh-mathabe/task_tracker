@@ -1,13 +1,20 @@
-.ui.header {
-    color: white !important;
-  }
-  
-  .display-form-header-icon {
-    display: flex;
-    justify-content: center;
-  }
+@import "../../utils/sass/index.scss";
 
-  .ui.form .field:last-child {
-    display: flex;
-    justify-content: right;
-  }
+.ui.header {
+  color: $backgroundColor;
+}
+
+.display-form-header-icon {
+  display: flex;
+  justify-content: center;
+}
+
+.ui.form .field:last-child {
+  display: flex;
+  justify-content: right;
+}
+
+.ui.container {
+  background: $darkerBrown;
+  padding-bottom: 10px;
+}

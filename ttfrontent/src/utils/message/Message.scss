@@ -1,14 +1,10 @@
 @import "../sass/index.scss";
 
-// .ui.active.modal {
-//     margin-top: 10% !important;
-// }
+.ui.active.modal {
+    margin-top: 10% !important;
+}
 
 .ui.small.basic.modal.transition.visible.active {
     text-align: center;
-    color: $darkerBrown;
-}
-
-.content {
-    color: $lighterrown;
+    color: $backgroundColor;
 }

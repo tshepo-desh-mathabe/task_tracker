@@ -3,8 +3,9 @@
 .loader {
     text-align: center;
     height: 90vh;
-    background-color:  transparent;
+    background-color: transparent;
 }
+
 .loader-content {
     position: relative;
     top: 50%;
@@ -13,7 +14,8 @@
     transform: translateY(-50%);
 }
 
-.ui.inline.loader.active, .ui.inline.loader.visible {
+.ui.inline.loader.active,
+.ui.inline.loader.visible {
     display: inline-block !important;
     color: $darkerBrown;
     font-weight: 700 !important;
@@ -33,4 +35,15 @@
     border-style: solid;
     border-width: .2em;
     box-shadow: 0 0 0 1px transparent;
+}
+
+.ui.huge.active.text.inline.loader {
+    color: $darkerBrown;
+}
+
+.ui.loader:after {
+        border-top-color: red !important;
+        border-right-color: transparent !important;
+        border-bottom-color: red !important;;
+        border-left-color: transparent !important;
 }

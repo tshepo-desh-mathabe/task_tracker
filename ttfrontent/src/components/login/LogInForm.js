@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Form, Input } from 'semantic-ui-react';
 import FORM_CONST from '../../utils/constants/form_constants.json';
 import { validateEmptyFields, validateEmail } from '../../utils/Validator';
+import './Login.scss';
 
 const placeholder = FORM_CONST.placeholder;
 const label = FORM_CONST.label;

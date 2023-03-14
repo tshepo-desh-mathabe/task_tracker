@@ -1,4 +1,4 @@
-import { Form, Button, Card, Header, Icon } from 'semantic-ui-react';
+import { Form, Button, Header, Icon } from 'semantic-ui-react';
 import './Index.scss';
 
 export const DisplayFormWrapper = props => {
@@ -17,7 +17,7 @@ export const DisplayFormWrapper = props => {
                 {children}
                 <hr/>
                 <div className='submit-button'>
-                    <Form.Button animated>
+                    <Form.Button animated inverted color='brown'>
                         <Button.Content visible>{buttonName}</Button.Content>
                         <Button.Content hidden>
                             <Icon name={buttonIcon} />

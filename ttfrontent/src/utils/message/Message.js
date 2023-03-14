@@ -19,7 +19,7 @@ const AppMessage = props => {
               <p>{message}</p>
             </Modal.Content>
             <Modal.Actions>
-              <Button color='green' inverted onClick={handleModalClick}>
+              <Button color='brown' inverted onClick={handleModalClick}>
                 <Icon name='checkmark' /> OK
               </Button>
             </Modal.Actions>
