@@ -1,21 +1,23 @@
-package co.za.task.tracker.util.security.configuration;
+package co.za.task.tracker.util.security;
 
 import co.za.task.tracker.util.constants.AppConstant;
 import co.za.task.tracker.util.property_fetcher.IPropertyFetcher;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+@Getter
+@AllArgsConstructor
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
-    @Autowired
-    private IPropertyFetcher<AppConstant> propertyFetcher;
+    private final IPropertyFetcher<AppConstant> propertyFetcher;
 
     @Override
     public void commence(HttpServletRequest httpServletRequest,

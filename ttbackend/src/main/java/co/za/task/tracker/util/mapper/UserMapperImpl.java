@@ -8,15 +8,16 @@ import co.za.task.tracker.entity.dto.UserDto;
 import co.za.task.tracker.entity.dto.UserRoleDto;
 import co.za.task.tracker.util.helper.IFieldPropertyMapper;
 import co.za.task.tracker.util.helper.IModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.springframework.stereotype.Component;
 
+@Getter
+@AllArgsConstructor
 @Component
 public class UserMapperImpl implements IModelMapper<User, UserDto> {
-    @Autowired
-    private IModelMapper<EmailAddress, EmailAddressDto> emailMapper;
-    @Autowired
-    private IModelMapper<UserRole, UserRoleDto> userRoleMapper;
+    private final IModelMapper<EmailAddress, EmailAddressDto> emailMapper;
+    private final IModelMapper<UserRole, UserRoleDto> userRoleMapper;
 
     @Override
     public User toEntity(UserDto dto) {

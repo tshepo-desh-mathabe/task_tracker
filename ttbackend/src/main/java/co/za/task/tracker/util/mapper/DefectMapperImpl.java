@@ -1,18 +1,20 @@
 package co.za.task.tracker.util.mapper;
 
-import co.za.task.tracker.entity.Task;
 import co.za.task.tracker.entity.Defect;
-import co.za.task.tracker.entity.dto.TaskDto;
+import co.za.task.tracker.entity.Task;
 import co.za.task.tracker.entity.dto.DefectDto;
+import co.za.task.tracker.entity.dto.TaskDto;
 import co.za.task.tracker.util.helper.IFieldPropertyMapper;
 import co.za.task.tracker.util.helper.IModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.springframework.stereotype.Component;
 
+@Getter
+@AllArgsConstructor
 @Component
 public class DefectMapperImpl implements IModelMapper<Defect, DefectDto> {
-    @Autowired
-    private IModelMapper<Task, TaskDto> taskMapper;
+    private final IModelMapper<Task, TaskDto> taskMapper;
 
     @Override
     public Defect toEntity(DefectDto dto) {

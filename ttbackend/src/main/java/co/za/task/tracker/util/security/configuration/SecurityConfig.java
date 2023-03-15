@@ -3,8 +3,10 @@ package co.za.task.tracker.util.security.configuration;
 import co.za.task.tracker.util.constants.AppConstant;
 import co.za.task.tracker.util.constants.ServicePath;
 import co.za.task.tracker.util.property_fetcher.IPropertyFetcher;
+import co.za.task.tracker.util.security.JwtAuthenticationEntryPoint;
 import co.za.task.tracker.util.security.JwtAuthenticationFilter;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -18,18 +20,15 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import static org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console;
 
+@Getter
+@AllArgsConstructor
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-
-    @Autowired
-    private IPropertyFetcher<AppConstant> propertyFetcher;
-    @Autowired
-    private JwtAuthenticationFilter jwtAuthFilter;
-    @Autowired
-    private AuthenticationProvider authenticationProvider;
-    @Autowired
-    private JwtAuthenticationEntryPoint unauthorizedHandler;
+    private final IPropertyFetcher<AppConstant> propertyFetcher;
+    private final JwtAuthenticationFilter jwtAuthFilter;
+    private final AuthenticationProvider authenticationProvider;
+    private final JwtAuthenticationEntryPoint unauthorizedHandler;
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
@@ -45,7 +44,7 @@ public class SecurityConfig {
                 .and()
                 .authorizeHttpRequests(req -> req
                         .requestMatchers(AntPathRequestMatcher.antMatcher(String.format("%s%s", ServicePath.USER_ENTRY_POINT, "/**"))
-                                ).permitAll()
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

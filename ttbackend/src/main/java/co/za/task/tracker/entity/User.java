@@ -6,20 +6,14 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
-import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Data
 @Entity
 @NoArgsConstructor
 @Table(name = EntityConstants.USERS)
-public class User implements UserDetails {
+public class User {
     @Id
     @JsonIgnore
     @Column(name = EntityConstants.USER_ID)
@@ -33,9 +27,6 @@ public class User implements UserDetails {
     @JsonIgnore
     @Column(name = EntityConstants.LAST_NAME, length = 50, nullable = false)
     private String lastName;
-
-    @OneToMany
-    private List<Token> tokens;
 
     @JsonIgnore
     @Column(name = EntityConstants.PASSWORD, nullable = false)
@@ -55,41 +46,9 @@ public class User implements UserDetails {
     )
     private Set<UserRole> roles;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles.stream()
-                .map(role -> new SimpleGrantedAuthority(role.getRoleType().name()))
-                .collect(Collectors.toSet());
-    }
-
-    @Override
-    public String getUsername() {
-        return emailAddress.getAddress();
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(
+            name = EntityConstants.SECURE_ACCOUNT_ID, referencedColumnName = EntityConstants.SECURE_ACCOUNT_ID, nullable = false
+    )
+    private SecureAccount secureAccount;
 }

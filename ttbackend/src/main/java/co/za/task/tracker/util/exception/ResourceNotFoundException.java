@@ -1,4 +1,4 @@
-package co.za.task.tracker.util.exeption;
+package co.za.task.tracker.util.exception;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

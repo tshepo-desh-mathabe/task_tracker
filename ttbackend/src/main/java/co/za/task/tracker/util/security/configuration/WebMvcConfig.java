@@ -2,17 +2,18 @@ package co.za.task.tracker.util.security.configuration;
 
 import co.za.task.tracker.util.constants.AppConstant;
 import co.za.task.tracker.util.property_fetcher.IPropertyFetcher;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+@Getter
+@AllArgsConstructor
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
-    @Autowired
-    private IPropertyFetcher<AppConstant> propertyFetcher;
-
-    private final long MAX_AGE_SECS = 3600;
+    private final IPropertyFetcher<AppConstant> propertyFetcher;
+    private static final long MAX_AGE_SECS = 3600;
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {

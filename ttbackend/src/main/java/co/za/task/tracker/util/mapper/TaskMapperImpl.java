@@ -10,17 +10,17 @@ import co.za.task.tracker.entity.dto.TaskDto;
 import co.za.task.tracker.entity.dto.UserDto;
 import co.za.task.tracker.util.helper.IFieldPropertyMapper;
 import co.za.task.tracker.util.helper.IModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.springframework.stereotype.Component;
 
+@Getter
+@AllArgsConstructor
 @Component
 public class TaskMapperImpl implements IModelMapper<Task, TaskDto> {
-    @Autowired
-    private IModelMapper<User, UserDto> userMapper;
-    @Autowired
-    private IModelMapper<Status, StatusDto> statusMapper;
-    @Autowired
-    private IModelMapper<Priority, PriorityDto> priorityMapper;
+    private final IModelMapper<User, UserDto> userMapper;
+    private final IModelMapper<Status, StatusDto> statusMapper;
+    private final IModelMapper<Priority, PriorityDto> priorityMapper;
 
     @Override
     public Task toEntity(TaskDto dto) {

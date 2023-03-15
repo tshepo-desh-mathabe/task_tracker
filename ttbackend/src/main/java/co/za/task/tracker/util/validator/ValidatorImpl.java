@@ -4,13 +4,15 @@ import co.za.task.tracker.repository.IEmailAddressRepository;
 import co.za.task.tracker.util.constants.Flag;
 import jakarta.mail.internet.AddressException;
 import jakarta.mail.internet.InternetAddress;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.springframework.stereotype.Component;
 
+@Getter
+@AllArgsConstructor
 @Component
 public class ValidatorImpl implements IValidator<Boolean, String> {
-    @Autowired
-    private IEmailAddressRepository emailAddressRepository;
+    private final IEmailAddressRepository emailAddressRepository;
 
     @Override
     public Boolean checkData(String email, Flag flag) {

@@ -7,7 +7,9 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +19,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
+@Getter
+@AllArgsConstructor
 @Service
 public class JwtService {
-    @Autowired
-    private IPropertyFetcher<AppConstant> propertyFetcher;
+    private final IPropertyFetcher<AppConstant> propertyFetcher;
+
     public String extractUsername(String token) {
         if (token == null) return null;
         return extractClaim(token, Claims::getSubject);
@@ -31,11 +35,12 @@ public class JwtService {
         return claimsResolver.apply(claims);
     }
 
-    public String generateToken(UserDetails userDetails) {
-        return generateToken(new HashMap<>(), userDetails);
+    public String generateToken(Authentication authentication) {
+        UserPrincipal principal = (UserPrincipal) authentication.getPrincipal();
+        return generateToken(new HashMap<>(), principal);
     }
 
-    public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails) {
+    private String generateToken(Map<String, Object> extraClaims, UserDetails userDetails) {
         return Jwts
                 .builder()
                 .setClaims(extraClaims)

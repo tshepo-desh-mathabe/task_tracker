@@ -6,12 +6,14 @@ import co.za.task.tracker.entity.dto.ChangeRequestDto;
 import co.za.task.tracker.entity.dto.TaskDto;
 import co.za.task.tracker.util.helper.IFieldPropertyMapper;
 import co.za.task.tracker.util.helper.IModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.springframework.stereotype.Component;
 
+@Getter
+@AllArgsConstructor
 @Component
 public class ChangeRequestMapperImpl implements IModelMapper<ChangeRequest, ChangeRequestDto> {
-    @Autowired
     private IModelMapper<Task, TaskDto> taskMapper;
 
     @Override

@@ -6,13 +6,15 @@ import co.za.task.tracker.entity.dto.OtherDto;
 import co.za.task.tracker.entity.dto.TaskDto;
 import co.za.task.tracker.util.helper.IFieldPropertyMapper;
 import co.za.task.tracker.util.helper.IModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.springframework.stereotype.Component;
 
+@Getter
+@AllArgsConstructor
 @Component
 public class OtherMapperImpl implements IModelMapper<Other, OtherDto> {
-    @Autowired
-    private IModelMapper<Task, TaskDto> taskMapper;
+    private final IModelMapper<Task, TaskDto> taskMapper;
 
     @Override
     public Other toEntity(OtherDto dto) {

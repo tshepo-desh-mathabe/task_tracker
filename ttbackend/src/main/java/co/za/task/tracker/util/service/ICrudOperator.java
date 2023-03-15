@@ -5,7 +5,7 @@ package co.za.task.tracker.util.service;
  * @param <P> the payload
  * @param <R> the return type
  */
-@Deprecated
+@Deprecated // todo - remove unused
 public interface ICrudOperator<P, R> {
 
     /**

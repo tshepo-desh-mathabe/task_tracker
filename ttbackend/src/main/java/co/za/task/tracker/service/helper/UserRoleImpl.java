@@ -5,19 +5,19 @@ import co.za.task.tracker.entity.dto.UserRoleDto;
 import co.za.task.tracker.repository.IUserRoleRepository;
 import co.za.task.tracker.util.helper.IModelMapper;
 import co.za.task.tracker.util.service.ICrudFindService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
+@AllArgsConstructor
 @Component
 public class UserRoleImpl implements ICrudFindService<Set<UserRoleDto>, Set<UserRoleDto>> {
-    @Autowired
-    private IUserRoleRepository repository;
-    @Autowired
-    private IModelMapper<UserRole, UserRoleDto> mapper;
+    private final IUserRoleRepository repository;
+    private final IModelMapper<UserRole, UserRoleDto> mapper;
 
     @Override
     public Set<UserRoleDto> readData(Set<UserRoleDto> type) {
@@ -28,7 +28,7 @@ public class UserRoleImpl implements ICrudFindService<Set<UserRoleDto>, Set<User
             type.forEach(e -> {
                 while (userRoles.hasNext()) {
                     var role = userRoles.next();
-                    if (e.getType().equals(role.getRoleType().name())) { // when it gets here, this does not
+                    if (e.getType().equals(role.getRoleType().name())) { // when it gets here, this does not check (break is here)
                         roles.add(role);
                         break;
                     }

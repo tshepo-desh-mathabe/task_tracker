@@ -12,6 +12,7 @@ public class EntityConstants {
     public static final String USER_STORY_ID = "USER_STORY_ID";
     public static final String CHANGE_REQUEST_ID = "CHANGE_REQUEST_ID";
     public static final String OTHER_ID = "OTHER_ID";
+    public static final String SECURE_ACCOUNT_ID = "SECURE_ACCOUNT_ID";
     public static final String USER_ROLE = "USER_ROLE";
     public static final String ROLE = "ROLE";
     public static final String NAME = "NAME";
@@ -39,4 +40,12 @@ public class EntityConstants {
     public static final String IS_BACKEND = "IS_BACKEND";
     public static final String IS_DATABASE = "IS_DATABASE";
     public static final String ADDRESS = "ADDRESS";
+    public static final String SECURE_ACCOUNT = "SECURE_ACCOUNT";
+    public static final String IS_ENABLED = "IS_ENABLED";
+    public static final String IS_ACCOUNT_EXPIRED = "IS_ACCOUNT_EXPIRED";
+    public static final String IS_CREDENTIALS_EXPIRED = "IS_CREDENTIALS_EXPIRED";
+    public static final String IS_ACCOUNT_LOCKED = "IS_ACCOUNT_LOCKED";
+
+
+    public static final String TINYINT = "TINYINT";
 }
