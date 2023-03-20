@@ -8,6 +8,11 @@ export const MenuItems = props => {
     return (
         <Fragment>
             <Menu.Item
+                name={NAME.home}
+                active={item === NAME.home}
+                onClick={handleItemClick}
+            />
+            <Menu.Item
                 name={NAME.defect}
                 active={item === NAME.defect}
                 onClick={handleItemClick}

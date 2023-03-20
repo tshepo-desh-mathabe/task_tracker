@@ -32,9 +32,7 @@ export const MobileNav = props => {
                         <Icon name='sidebar' />
                     </Menu.Item>
                 </Menu>
-                <div id='menu-items' className='menu-items'>
-                    {children}
-                </div>
+                <div className='mobile-menu-items'>{children}</div>
             </Sidebar.Pusher>
         </Sidebar.Pushable>
     );

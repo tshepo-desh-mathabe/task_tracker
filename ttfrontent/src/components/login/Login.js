@@ -91,7 +91,6 @@ export class Login extends Component {
 
         signIn(dataToBeSent).then(res => {
             const resData = res.data;
-            console.log(resData);
             if (!resData.success) {
                 this.setState({
                     showMessage: {
@@ -102,11 +101,8 @@ export class Login extends Component {
                 });
             } else {
                 setUserSession(res.data.message);
-
-                this.setState({
-                    token: res.data.message,
-                    showLoader: { flag: false, content: '' }
-                });
+                this.setState({ token: res.data.message })
+                this.setState(initialState);
             }
         }).catch(err => {
             this.setState({
@@ -152,7 +148,7 @@ const RenderForm = props => {
     return (
         <Container>
             <DisplayFormWrapper headerIcon='sign-in' headerName={APP_CONST.signin}
-                formData={handleSubmit} buttonIcon='sign-in' buttonName={APP_CONST.signin}
+                formData={handleSubmit} buttonIcon='sign-in' submitButtonName={APP_CONST.signin}
                 children={
                     <LoginForm sendingFlag={sendingFlag} emailAddress={emailAddress}
                         password={password} handleChange={handleChange} />

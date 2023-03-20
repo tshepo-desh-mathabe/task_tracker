@@ -4,11 +4,11 @@ import co.za.task.tracker.entity.Priority;
 import co.za.task.tracker.entity.dto.PriorityDto;
 import co.za.task.tracker.util.constants.PriorityType;
 import co.za.task.tracker.util.helper.IFieldPropertyMapper;
-import co.za.task.tracker.util.helper.IModelMapper;
+import co.za.task.tracker.util.helper.ListMapperHelper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PriorityMapperImpl implements IModelMapper<Priority, PriorityDto> {
+public class PriorityMapperImpl extends ListMapperHelper<Priority, PriorityDto> {
 
     @Override
     public Priority toEntity(PriorityDto dto) {

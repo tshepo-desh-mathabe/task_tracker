@@ -5,7 +5,7 @@ import { DesktopNav } from './DesktopNav';
 import { MobileNav } from './MobileNav';
 import APP_CONST from '../../utils/constants/app_contants.json';
 import PATH from '../../utils/constants/route_path.json';
-import NUMBER from '../../utils/constants/number_constants.json';
+import NUMBER from '../../utils/constants/number_constants.json'; 
 
 class NavigationBar extends Component {
     constructor(props) {
@@ -26,6 +26,9 @@ class NavigationBar extends Component {
 
     componentDidMount() {
         switch (history.location.pathname) {
+            case PATH.home:
+                this.setState({ activeItem: APP_CONST.home });
+                break;
             case PATH.defect:
                 this.setState({ activeItem: APP_CONST.defect });
                 break;
@@ -59,10 +62,17 @@ class NavigationBar extends Component {
 
     handleToggle = () => this.setState({ visible: !this.state.visible });
 
+    /**
+     * I am using semantic UI menu
+     * Here I push the path for a browser route change
+     */
     handleItemClick = (e, { name }) => {
         this.setState({ activeItem: name });
 
         switch (name) {
+            case APP_CONST.home:  
+                history.push(PATH.home);
+                break;
             case APP_CONST.defect:
                 history.push(PATH.defect);
                 break;
@@ -76,10 +86,11 @@ class NavigationBar extends Component {
                 history.push(PATH.other);
                 break;
             default:
-                history.push(PATH.defect);
+                history.push(PATH.home);
                 break;
         }
     }
+
     render() {
         const { activeItem } = this.state;
 
@@ -106,7 +117,7 @@ class NavigationBar extends Component {
 }
 
 const NavBarChildren = props => (
-    <Container style={{ marginTop: '5em' }}>{props.children}</Container>
+    <Container>{props.children}</Container>
 );
 
 export default NavigationBar;

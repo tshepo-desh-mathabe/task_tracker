@@ -3,7 +3,8 @@ import './Index.scss';
 
 export const DisplayFormWrapper = props => {
 
-    const { headerIcon, headerName, formData, children, buttonIcon, buttonName } = props;
+    const { headerIcon, headerName, formData, children, submitButtonIcon, buttonIcon,
+        submitButtonName, buttonName, handleButtonAction, allowSecondButton } = props;
 
     return (
         <>
@@ -13,18 +14,43 @@ export const DisplayFormWrapper = props => {
                     {headerName}
                 </Header>
             </div>
+            <hr />
             <Form onSubmit={formData}>
                 {children}
-                <hr/>
-                <div className='submit-button'>
-                    <Form.Button animated inverted color='brown'>
-                        <Button.Content visible>{buttonName}</Button.Content>
-                        <Button.Content hidden>
-                            <Icon name={buttonIcon} />
-                        </Button.Content>
-                    </Form.Button>
-                </div>
+                <hr />
+                {
+                    !allowSecondButton ?
+                        <SubmitButtom submitButtonName={submitButtonName} submitButtonIcon={submitButtonIcon} />
+                        :
+                        <div className='jj'>
+                            <div style={{ display: 'inline-block' }}>
+                                <Form.Button type='button' animated inverted color='brown' onClick={handleButtonAction}>
+                                    <Button.Content visible>{buttonName}</Button.Content>
+                                    <Button.Content hidden>
+                                        <Icon name={buttonIcon} />
+                                    </Button.Content>
+                                </Form.Button>
+                            </div>
+
+                            <SubmitButtom submitButtonName={submitButtonName} submitButtonIcon={submitButtonIcon} />
+                        </div>
+                }
             </Form>
         </>
     );
+}
+
+const SubmitButtom = props => {
+    const { submitButtonName, submitButtonIcon } = props;
+
+    return (
+        <div style={{ display: 'inline-block' }}>
+            <Form.Button type='submit' animated inverted color='brown'>
+                <Button.Content visible>{submitButtonName}</Button.Content>
+                <Button.Content hidden>
+                    <Icon name={submitButtonIcon} />
+                </Button.Content>
+            </Form.Button>
+        </div>
+    )
 }

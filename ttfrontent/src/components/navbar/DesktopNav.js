@@ -13,7 +13,7 @@ export const DesktopNav = props => {
                     <MenuItems item={item} handleItemClick={handleItemClick} />
                 </Menu.Menu>
             </Menu>
-            {children}
+            <div className='desktop-menu-items'>{children}</div>
         </React.Fragment>
     );
 }

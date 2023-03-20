@@ -38,6 +38,7 @@ public abstract class AUserService implements ICrudSaveService<UserDto, Response
         if (email != null && !validator.checkData(email, Flag.CORRECT_EMAIL_FORMAT)) {
             return ResponseApiWrapper.badRequest(AppConstant.BAD_EMAIL_FORMAT);
         }
+
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(email, payload.getPassword())
         );

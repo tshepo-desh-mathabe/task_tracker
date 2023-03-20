@@ -4,11 +4,11 @@ import co.za.task.tracker.entity.Status;
 import co.za.task.tracker.entity.dto.StatusDto;
 import co.za.task.tracker.util.constants.StatusType;
 import co.za.task.tracker.util.helper.IFieldPropertyMapper;
-import co.za.task.tracker.util.helper.IModelMapper;
+import co.za.task.tracker.util.helper.ListMapperHelper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class StatusMapperImpl implements IModelMapper<Status, StatusDto> {
+public class StatusMapperImpl extends ListMapperHelper<Status, StatusDto> {
 
     @Override
     public Status toEntity(StatusDto dto) {

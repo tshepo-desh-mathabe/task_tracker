@@ -2,14 +2,16 @@ package co.za.task.tracker.util.service;
 
 /**
  * For DB read, of CRUD "R"
- * @param <P> the payload
  * @param <R> the return type
+ * @param <P> the payload
  */
-@FunctionalInterface
-public interface ICrudFindService<P, R> {
+public interface ICrudFindService<R, P> {
 
     /**
-     * Data will be persisted into the DB here
+     * Read DB data
+     * @param data request attribute
+     * @return returns data based on attribute passed
      */
     R readData(P data);
+
 }

@@ -1,7 +1,7 @@
 package co.za.task.tracker.util.security.configuration;
 
 import co.za.task.tracker.util.constants.AppConstant;
-import co.za.task.tracker.util.constants.ServicePath;
+import co.za.task.tracker.util.constants.ResourcePath;
 import co.za.task.tracker.util.property_fetcher.IPropertyFetcher;
 import co.za.task.tracker.util.security.JwtAuthenticationEntryPoint;
 import co.za.task.tracker.util.security.JwtAuthenticationFilter;
@@ -10,6 +10,7 @@ import lombok.Getter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
@@ -24,6 +25,7 @@ import static org.springframework.boot.autoconfigure.security.servlet.PathReques
 @AllArgsConstructor
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity
 public class SecurityConfig {
     private final IPropertyFetcher<AppConstant> propertyFetcher;
     private final JwtAuthenticationFilter jwtAuthFilter;
@@ -43,7 +45,7 @@ public class SecurityConfig {
                 .authenticationEntryPoint(unauthorizedHandler)
                 .and()
                 .authorizeHttpRequests(req -> req
-                        .requestMatchers(AntPathRequestMatcher.antMatcher(String.format("%s%s", ServicePath.USER_ENTRY_POINT, "/**"))
+                        .requestMatchers(AntPathRequestMatcher.antMatcher(String.format("%s%s", ResourcePath.USER_ENTRY_POINT, "/**"))
                         ).permitAll()
                         .anyRequest().authenticated()
                 )

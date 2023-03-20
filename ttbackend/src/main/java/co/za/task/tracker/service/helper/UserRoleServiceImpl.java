@@ -15,7 +15,7 @@ import java.util.Set;
 @Getter
 @AllArgsConstructor
 @Component
-public class UserRoleImpl implements ICrudFindService<Set<UserRoleDto>, Set<UserRoleDto>> {
+public class UserRoleServiceImpl implements ICrudFindService<Set<UserRoleDto>, Set<UserRoleDto>> {
     private final IUserRoleRepository repository;
     private final IModelMapper<UserRole, UserRoleDto> mapper;
 

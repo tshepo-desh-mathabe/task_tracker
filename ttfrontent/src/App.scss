@@ -27,3 +27,16 @@
 .ui.input {
   color: white !important;
 }
+
+.modals.dimmer .ui.scrolling.modal {
+  right: 0px !important;
+  background: transparent !important;
+}
+
+.ui.modal {
+  box-shadow: none !important;
+}
+
+.ui.modal>.content {
+  background: $darkerBrown;
+}

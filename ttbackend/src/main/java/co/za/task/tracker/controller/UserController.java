@@ -2,7 +2,7 @@ package co.za.task.tracker.controller;
 
 import co.za.task.tracker.entity.dto.UserDto;
 import co.za.task.tracker.service.UserService;
-import co.za.task.tracker.util.constants.ServicePath;
+import co.za.task.tracker.util.constants.ResourcePath;
 import co.za.task.tracker.util.payload.AuthenticationRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,22 +14,22 @@ import org.springframework.web.bind.annotation.RestController;
 @Getter
 @AllArgsConstructor
 @RestController
-@RequestMapping(ServicePath.USER_ENTRY_POINT)
+@RequestMapping(ResourcePath.USER_ENTRY_POINT)
 public class UserController {
     private final UserService userService;
 
-    @PostMapping(ServicePath.USER_LOGIN)
+    @PostMapping(ResourcePath.USER_LOGIN)
     public Object authenticateUser(@RequestBody AuthenticationRequest request) {
         return userService.loginUser(request);
     }
 
     @Deprecated // todo - remove unused
-    @PostMapping(ServicePath.REGISTER)
+    @PostMapping(ResourcePath.SAVE)
     public Object register(@RequestBody UserDto request) {
         return userService.registerUser(request).getBody();
     }
 
-    @PostMapping(ServicePath.USER_LOGOUT)
+    @PostMapping(ResourcePath.USER_LOGOUT)
     public void signOut() {
     }
 }

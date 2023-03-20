@@ -1,3 +1,3 @@
 export function Defect() {
-    return <span>Home</span>
+    return <span>Defect</span>
 }

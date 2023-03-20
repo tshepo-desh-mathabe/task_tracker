@@ -1,19 +1,17 @@
 import APP_CONST from '../../utils/constants/app_contants.json';
+import AddTask from '../task/AddTask';
+import './Footer.scss';
 
+ 
 const Footer = () => {
     return (
-        <footer style={{
-            position: 'fixed',
-            bottom: '0',
-            left: '0',
-            right: '0',
-            textAlign: 'center',
-            padding: '12px',
-            backgroundColor: '#2a1f11',
-            zIndex: 1,
-            color: 'white'
-        }}>
-            <p><b>&copy; {APP_CONST.allRightsReserved}</b></p>
+        <footer>
+            <div className='add-task'>
+                <AddTask />
+            </div>
+            <div className='footer-text'>
+                <b>&copy; {APP_CONST.allRightsReserved}</b>
+            </div>
         </footer>
     )
 }

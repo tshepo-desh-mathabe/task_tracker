@@ -1,0 +1,19 @@
+.footer-text {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    padding: 12px;
+    background-color: rgb(42, 31, 17);
+    z-index: 1;
+    color: white;
+}
+
+.add-task {
+    position: fixed;
+    bottom: 50px;
+    right: 0px;
+    z-index: 1;
+    padding: 20px;
+}

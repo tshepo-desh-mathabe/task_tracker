@@ -1,4 +1,5 @@
 {
+    "allRoutes": "*",
     "home": "/",
     "defect": "/defect",
     "userStory": "/user-story",
