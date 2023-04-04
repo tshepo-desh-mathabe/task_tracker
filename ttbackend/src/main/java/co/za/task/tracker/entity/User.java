@@ -18,7 +18,7 @@ public class User {
     @JsonIgnore
     @Column(name = EntityConstants.USER_ID)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long id;
 
     @JsonIgnore
     @Column(name = EntityConstants.FIRST_NAME, length = 50, nullable = false)

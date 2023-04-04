@@ -1,12 +1,9 @@
 package co.za.task.tracker.util.security.configuration;
 
-import co.za.task.tracker.util.constants.AppConstant;
 import co.za.task.tracker.util.constants.ResourcePath;
-import co.za.task.tracker.util.property_fetcher.IPropertyFetcher;
 import co.za.task.tracker.util.security.JwtAuthenticationEntryPoint;
 import co.za.task.tracker.util.security.JwtAuthenticationFilter;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -21,13 +18,11 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import static org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console;
 
-@Getter
 @AllArgsConstructor
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfig {
-    private final IPropertyFetcher<AppConstant> propertyFetcher;
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
     private final JwtAuthenticationEntryPoint unauthorizedHandler;
@@ -45,13 +40,18 @@ public class SecurityConfig {
                 .authenticationEntryPoint(unauthorizedHandler)
                 .and()
                 .authorizeHttpRequests(req -> req
-                        .requestMatchers(AntPathRequestMatcher.antMatcher(String.format("%s%s", ResourcePath.USER_ENTRY_POINT, "/**"))
+                        .requestMatchers(AntPathRequestMatcher.antMatcher(String.format("%s%s", ResourcePath.USER_ENTRY_POINT, ResourcePath.USER_LOGIN))
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+//                .logout(out -> out
+//                        .logoutUrl(String.format("%s%s", ResourcePath.USER_ENTRY_POINT, ResourcePath.USER_LOGOUT))
+//                        .permitAll()
+//                        .addLogoutHandler(new SecurityContextLogoutHandler())
+//                )
                 .build();
     }
 }

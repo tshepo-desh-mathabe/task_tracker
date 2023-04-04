@@ -33,7 +33,7 @@ public class UserPrincipal implements UserDetails {
         ).collect(Collectors.toList());
 
         return new UserPrincipal (
-                user.getUserId(), user.getFirstName(), user.getLastName(), user.getPassword(),
+                user.getId(), user.getFirstName(), user.getLastName(), user.getPassword(),
                 user.getEmailAddress(),  user.getSecureAccount(), authorities
         );
     }

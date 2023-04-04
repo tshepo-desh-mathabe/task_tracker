@@ -2,8 +2,8 @@ package co.za.task.tracker.entity.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Set;
@@ -22,4 +22,6 @@ public class UserDto {
     private EmailAddressDto emailAddress;
     @NotBlank
     private Set<UserRoleDto> roles;
+    @NotBlank
+    private SecureAccountDto secureAccountDetails;
 }

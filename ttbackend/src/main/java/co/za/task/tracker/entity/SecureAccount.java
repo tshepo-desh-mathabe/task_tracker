@@ -14,7 +14,7 @@ public class SecureAccount {
     @Id
     @Column(name = EntityConstants.SECURE_ACCOUNT_ID)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long secureAccountId;
+    private Long id;
 
     @Column(
             name = EntityConstants.IS_ENABLED, nullable = false,

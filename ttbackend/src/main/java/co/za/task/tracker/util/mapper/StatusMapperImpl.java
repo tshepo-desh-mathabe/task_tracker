@@ -3,12 +3,12 @@ package co.za.task.tracker.util.mapper;
 import co.za.task.tracker.entity.Status;
 import co.za.task.tracker.entity.dto.StatusDto;
 import co.za.task.tracker.util.constants.StatusType;
-import co.za.task.tracker.util.helper.IFieldPropertyMapper;
-import co.za.task.tracker.util.helper.ListMapperHelper;
+import co.za.task.tracker.util.helper.mapper.AListMapperHelper;
+import co.za.task.tracker.util.helper.mapper.IFieldPropertyMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class StatusMapperImpl extends ListMapperHelper<Status, StatusDto> {
+public class StatusMapperImpl extends AListMapperHelper<Status, StatusDto> {
 
     @Override
     public Status toEntity(StatusDto dto) {
@@ -23,7 +23,7 @@ public class StatusMapperImpl extends ListMapperHelper<Status, StatusDto> {
     private StatusDto convertToDto(Status status) {
         if (status != null) {
             IFieldPropertyMapper<StatusDto> mapper = destination -> {
-                destination.setId(status.getStatusId());
+                destination.setId(status.getId());
                 destination.setType(String.valueOf(status.getStatusType()));
 
                 return destination;
@@ -38,7 +38,7 @@ public class StatusMapperImpl extends ListMapperHelper<Status, StatusDto> {
     private Status convertToEntity(StatusDto statusDto) {
         if (statusDto != null) {
             IFieldPropertyMapper<Status> mapper = destination -> {
-                destination.setStatusId(statusDto.getId());
+                destination.setId(statusDto.getId());
                 destination.setStatusType(StatusType.valueOf(statusDto.getType()));
 
                 return destination;

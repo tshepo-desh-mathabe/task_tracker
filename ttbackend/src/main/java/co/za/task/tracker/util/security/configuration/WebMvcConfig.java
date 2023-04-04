@@ -3,12 +3,10 @@ package co.za.task.tracker.util.security.configuration;
 import co.za.task.tracker.util.constants.AppConstant;
 import co.za.task.tracker.util.property_fetcher.IPropertyFetcher;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@Getter
 @AllArgsConstructor
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {

@@ -3,13 +3,12 @@ package co.za.task.tracker.util.mapper;
 import co.za.task.tracker.entity.UserRole;
 import co.za.task.tracker.entity.dto.UserRoleDto;
 import co.za.task.tracker.util.constants.RoleType;
-import co.za.task.tracker.util.helper.IFieldPropertyMapper;
-import co.za.task.tracker.util.helper.IModelMapper;
-import co.za.task.tracker.util.helper.ListMapperHelper;
+import co.za.task.tracker.util.helper.mapper.AListMapperHelper;
+import co.za.task.tracker.util.helper.mapper.IFieldPropertyMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserRoleMapperImpl extends ListMapperHelper<UserRole, UserRoleDto> {
+public class UserRoleMapperImpl extends AListMapperHelper<UserRole, UserRoleDto> {
 
     @Override
     public UserRole toEntity(UserRoleDto dto) {

@@ -1,26 +1,20 @@
 package co.za.task.tracker.util.mapper;
 
-import co.za.task.tracker.entity.Priority;
-import co.za.task.tracker.entity.Status;
-import co.za.task.tracker.entity.Task;
-import co.za.task.tracker.entity.User;
-import co.za.task.tracker.entity.dto.PriorityDto;
-import co.za.task.tracker.entity.dto.StatusDto;
-import co.za.task.tracker.entity.dto.TaskDto;
-import co.za.task.tracker.entity.dto.UserDto;
-import co.za.task.tracker.util.helper.IFieldPropertyMapper;
-import co.za.task.tracker.util.helper.IModelMapper;
+import co.za.task.tracker.entity.*;
+import co.za.task.tracker.entity.dto.*;
+import co.za.task.tracker.util.helper.mapper.AListMapperHelper;
+import co.za.task.tracker.util.helper.mapper.IFieldPropertyMapper;
+import co.za.task.tracker.util.helper.mapper.IModelMapper;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import org.springframework.stereotype.Component;
 
-@Getter
 @AllArgsConstructor
 @Component
-public class TaskMapperImpl implements IModelMapper<Task, TaskDto> {
+public class TaskMapperImpl extends AListMapperHelper<Task, TaskDto> {
     private final IModelMapper<User, UserDto> userMapper;
     private final IModelMapper<Status, StatusDto> statusMapper;
     private final IModelMapper<Priority, PriorityDto> priorityMapper;
+    private final IModelMapper<TaskFlag, TaskFlagDto> taskFlagMapper;
 
     @Override
     public Task toEntity(TaskDto dto) {
@@ -35,16 +29,17 @@ public class TaskMapperImpl implements IModelMapper<Task, TaskDto> {
     private TaskDto convertToDto(Task task) {
         if (task != null) {
             IFieldPropertyMapper<TaskDto> mapper = destination -> {
-                destination.setId(task.getTaskId());
+                destination.setId(task.getId());
                 destination.setDesc(task.getDescription());
                 destination.setComments(task.getAdditionalComments());
                 destination.setIsBackend(task.getIsBackend());
-                destination.setIsDatabase(task.getIsDatabase());
+                destination.setIsDatabase(task.getIsFrontend());
                 destination.setEta(task.getEstimatedTimeOfArrival());
                 destination.setAllocatedAt(task.getAssignedAt());
+                destination.setTaskType(taskFlagMapper.toDto(task.getTaskFlag()));
                 destination.setAssignedTo(userMapper.toDto(task.getAssignedTo()));
-                destination.setStatus(statusMapper.toDto(task.getStatus()));
-                destination.setPriority(priorityMapper.toDto(task.getPriority()));
+                destination.setStatusDetails(statusMapper.toDto(task.getStatus()));
+                destination.setPriorityDetails(priorityMapper.toDto(task.getPriority()));
 
                 destination.setAuditCreatedAt(task.getAuditCreatedAt());
                 destination.setAuditUpdatedAt(task.getAuditUpdatedAt());
@@ -63,16 +58,17 @@ public class TaskMapperImpl implements IModelMapper<Task, TaskDto> {
     private Task convertToEntity(TaskDto taskDto) {
         if (taskDto != null) {
             IFieldPropertyMapper<Task> mapper = destination -> {
-                destination.setTaskId(taskDto.getId());
+                destination.setId(taskDto.getId());
                 destination.setDescription(taskDto.getDesc());
                 destination.setAdditionalComments(taskDto.getComments());
                 destination.setIsBackend(taskDto.getIsBackend());
-                destination.setIsDatabase(taskDto.getIsDatabase());
+                destination.setIsFrontend(taskDto.getIsDatabase());
                 destination.setEstimatedTimeOfArrival(taskDto.getEta());
                 destination.setAssignedAt(taskDto.getAllocatedAt());
+                destination.setTaskFlag(taskFlagMapper.toEntity(taskDto.getTaskType()));
                 destination.setAssignedTo(userMapper.toEntity(taskDto.getAssignedTo()));
-                destination.setStatus(statusMapper.toEntity(taskDto.getStatus()));
-                destination.setPriority(priorityMapper.toEntity(taskDto.getPriority()));
+                destination.setStatus(statusMapper.toEntity(taskDto.getStatusDetails()));
+                destination.setPriority(priorityMapper.toEntity(taskDto.getPriorityDetails()));
 
                 destination.setAuditCreatedAt(taskDto.getAuditCreatedAt());
                 destination.setAuditUpdatedAt(taskDto.getAuditUpdatedAt());

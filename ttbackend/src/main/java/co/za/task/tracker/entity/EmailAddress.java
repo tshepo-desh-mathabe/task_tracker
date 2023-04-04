@@ -19,7 +19,7 @@ public class EmailAddress {
     @JsonIgnore
     @Column(name = EntityConstants.EMAIL_ADDRESS_ID)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long emailId;
+    private Long id;
 
     @JsonIgnore
     @Column(name = EntityConstants.ADDRESS, length = 150, nullable = false)

@@ -3,8 +3,8 @@ package co.za.task.tracker.service.helper;
 import co.za.task.tracker.entity.UserRole;
 import co.za.task.tracker.entity.dto.UserRoleDto;
 import co.za.task.tracker.repository.IUserRoleRepository;
-import co.za.task.tracker.util.helper.IModelMapper;
-import co.za.task.tracker.util.service.ICrudFindService;
+import co.za.task.tracker.util.helper.mapper.IModelMapper;
+import co.za.task.tracker.util.helper.service.util.ICrudFindService;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.stereotype.Component;
@@ -25,15 +25,15 @@ public class UserRoleServiceImpl implements ICrudFindService<Set<UserRoleDto>, S
         var userRoles = repository.findAll().iterator();
 
         // todo - roles not adding, java seems to beak it some how!
-            type.forEach(e -> {
-                while (userRoles.hasNext()) {
-                    var role = userRoles.next();
-                    if (e.getType().equals(role.getRoleType().name())) { // when it gets here, this does not check (break is here)
-                        roles.add(role);
-                        break;
-                    }
+        type.forEach(e -> {
+            while (userRoles.hasNext()) {
+                var role = userRoles.next();
+                if (e.getType().equals(role.getRoleType().name())) { // when it gets here, this does not check (break is here)
+                    roles.add(role);
+                    break;
                 }
-            });
+            }
+        });
 
         return mapper.toDto(roles);
     }

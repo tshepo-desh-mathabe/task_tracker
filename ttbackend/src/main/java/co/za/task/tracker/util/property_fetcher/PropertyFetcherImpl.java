@@ -53,6 +53,14 @@ public class PropertyFetcherImpl implements IPropertyFetcher<AppConstant> {
     private String httpDelete;
     @Value("${fe.base.domain}")
     private String feBaseDomain;
+    @Value("${error.message.dateTimeFormat}")
+    private String dateTimeFormat;
+    @Value("${error.message.dateTimeGreatThanNow}")
+    private String dateTimeGreatThanNow;
+    @Value("${error.message.task-id-length}")
+    private String idLength;
+    @Value("${error.message.task-id-exists}")
+    private String taskIdTaken;
 
 
     @Override
@@ -79,6 +87,10 @@ public class PropertyFetcherImpl implements IPropertyFetcher<AppConstant> {
             case HTTP_PATCH -> httpPatch;
             case HTTP_DELETE -> httpDelete;
             case FE_BASE_DOMAIN -> feBaseDomain;
+            case DATE_TIME_FORMAT -> dateTimeFormat;
+            case DATE_TIME_GREAT_NOW -> dateTimeGreatThanNow;
+            case ID_LENGTH -> idLength;
+            case TASK_ID_TAKEN -> taskIdTaken;
         };
     }
 }

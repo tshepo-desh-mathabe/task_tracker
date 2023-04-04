@@ -1,5 +1,6 @@
 package co.za.task.tracker.entity.helper;
 
+import co.za.task.tracker.entity.User;
 import co.za.task.tracker.util.constants.EntityConstants;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;

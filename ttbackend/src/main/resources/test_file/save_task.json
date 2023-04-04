@@ -1,0 +1,28 @@
+{
+  "id": 225,
+  "taskType": {
+    "id": 4,
+    "type": "CHANGE_REQUEST"
+  },
+  "desc": "Lorem ipsum dolor sit amet, solum aliquando ea nec, ad nam sale omnis malorum. Has te graece fierent. Eos agam iracundia an, pri id duis veniam feugait, gubergren consetetur et sit. Sed zril feugiat gloriatur no.",
+  "isBackend": false,
+  "isDatabase": true,
+  "eta": "2024-01-01T18:00:16.45",
+  "assignedTo": {
+    "id": 1,
+    "name": "Pholo",
+    "surname": "Li",
+    "emailAddress": {
+      "id": 2,
+      "email": "admin@gmail.com"
+    }
+  },
+  "statusDetails": {
+    "id": 1,
+    "type": "AWAITING_ASSIGNMENT"
+  },
+  "priorityDetails": {
+    "id": 1,
+    "type": "MINOR_LOW"
+  }
+}

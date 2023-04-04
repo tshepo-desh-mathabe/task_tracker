@@ -2,8 +2,8 @@ package co.za.task.tracker.util.mapper;
 
 import co.za.task.tracker.entity.EmailAddress;
 import co.za.task.tracker.entity.dto.EmailAddressDto;
-import co.za.task.tracker.util.helper.IFieldPropertyMapper;
-import co.za.task.tracker.util.helper.IModelMapper;
+import co.za.task.tracker.util.helper.mapper.IFieldPropertyMapper;
+import co.za.task.tracker.util.helper.mapper.IModelMapper;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -22,7 +22,7 @@ public class EmailAddressMapperImpl implements IModelMapper<EmailAddress, EmailA
     private EmailAddressDto convertToDto(EmailAddress emailAddress) {
         if (emailAddress != null) {
             IFieldPropertyMapper<EmailAddressDto> mapper = destination -> {
-                destination.setId(emailAddress.getEmailId());
+                destination.setId(emailAddress.getId());
                 destination.setEmail(emailAddress.getAddress());
 
                 return destination;
@@ -37,7 +37,7 @@ public class EmailAddressMapperImpl implements IModelMapper<EmailAddress, EmailA
     private EmailAddress convertToEntity(EmailAddressDto emailAddressDto) {
         if (emailAddressDto != null) {
             IFieldPropertyMapper<EmailAddress> mapper = destination -> {
-                destination.setEmailId(emailAddressDto.getId());
+                destination.setId(emailAddressDto.getId());
                 destination.setAddress(emailAddressDto.getEmail());
 
                 return destination;

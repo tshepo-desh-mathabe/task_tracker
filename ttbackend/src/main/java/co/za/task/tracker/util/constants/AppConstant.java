@@ -21,5 +21,9 @@ public enum AppConstant {
     HTTP_PUT,
     HTTP_PATCH,
     HTTP_DELETE,
-    FE_BASE_DOMAIN
+    FE_BASE_DOMAIN,
+    DATE_TIME_FORMAT,
+    DATE_TIME_GREAT_NOW,
+    ID_LENGTH,
+    TASK_ID_TAKEN
 }

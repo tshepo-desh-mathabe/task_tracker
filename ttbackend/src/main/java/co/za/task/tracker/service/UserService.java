@@ -1,11 +1,13 @@
 package co.za.task.tracker.service;
 
 import co.za.task.tracker.entity.dto.UserDto;
+import co.za.task.tracker.util.constants.AppConstant;
+import co.za.task.tracker.util.helper.service.AUserService;
+import co.za.task.tracker.util.helper.service.util.ICrudFindService;
 import co.za.task.tracker.util.payload.AuthenticationRequest;
+import co.za.task.tracker.util.response.ApiResponse;
 import co.za.task.tracker.util.response.ResponseApiWrapper;
-import co.za.task.tracker.util.service.AUserService;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.stereotype.Service;
@@ -23,7 +25,7 @@ public class UserService {
         }
     }
 
-    public ResponseEntity<?> registerUser(UserDto request) {
-        return service.saveData(request);
+    public ResponseEntity<?> searchForUsers(String value) {
+        return service.readData(value);
     }
 }

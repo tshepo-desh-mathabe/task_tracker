@@ -20,7 +20,7 @@ public class Priority {
     @JsonIgnore
     @Column(name = EntityConstants.PRIORITY_ID, length = 1)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long priorityId;
+    private Long id;
 
     @JsonIgnore
     @Enumerated(EnumType.STRING)

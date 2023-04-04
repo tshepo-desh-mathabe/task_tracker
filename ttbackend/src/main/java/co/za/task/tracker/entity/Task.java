@@ -5,22 +5,23 @@ import co.za.task.tracker.util.constants.EntityConstants;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Data
+@EqualsAndHashCode(callSuper=false)
 @Entity
 @NoArgsConstructor
 public class Task extends UserDateAudit {
     @Id
     @JsonIgnore
     @Column(name = EntityConstants.TASK_ID)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long taskId;
+    private Long id;
 
     @JsonIgnore
-    @Column(name = EntityConstants.DESCRIPTION, length = 100, nullable = false)
+    @Column(name = EntityConstants.DESCRIPTION, length = 500, nullable = false)
     private String description;
 
     @JsonIgnore
@@ -28,12 +29,18 @@ public class Task extends UserDateAudit {
     private String additionalComments;
 
     @JsonIgnore
-    @Column(name = EntityConstants.IS_BACKEND, nullable = false)
+    @Column(
+            name = EntityConstants.IS_BACKEND, nullable = false,
+            columnDefinition = EntityConstants.TINYINT, length = 1
+    )
     private Boolean isBackend;
 
     @JsonIgnore
-    @Column(name = EntityConstants.IS_DATABASE, nullable = false)
-    private Boolean isDatabase;
+    @Column(
+            name = EntityConstants.IS_FRONTEND, nullable = false,
+            columnDefinition = EntityConstants.TINYINT, length = 1
+    )
+    private Boolean isFrontend;
 
     @JsonIgnore
     @Column(name = EntityConstants.DUE_DATE, nullable = false)
@@ -47,6 +54,11 @@ public class Task extends UserDateAudit {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = EntityConstants.ASSIGNED_TO, referencedColumnName = EntityConstants.USER_ID, nullable = false)
     private User assignedTo;
+
+    @JsonIgnore
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = EntityConstants.TASK_FLAG_ID, referencedColumnName = EntityConstants.TASK_FLAG_ID, nullable = false)
+    private TaskFlag taskFlag;
 
     @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)

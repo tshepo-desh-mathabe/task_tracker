@@ -20,7 +20,7 @@ public class Status {
     @JsonIgnore
     @Column(name = EntityConstants.STATUS_ID, length = 1)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long statusId;
+    private Long id;
 
     @JsonIgnore
     @Enumerated(EnumType.STRING)

@@ -9,5 +9,6 @@ import co.za.task.tracker.util.constants.Flag;
  */
 @FunctionalInterface
 public interface IValidator<R, D> {
-    R checkData(D email, Flag flag);
+    R checker(D data, Flag flag);
+
 }
