@@ -2,49 +2,57 @@ import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 import { dataChecker, emailRegex } from '../../utils/Validator';
 import { LoginForm } from './LogInForm';
-import Message from '../../utils/message/Message';
-import PageLoader from '../../utils/page_loader/PageLoader';
 import { DisplayFormWrapper } from '../../utils/wrapper/index';
 import FORM_CONST from '../../utils/constants/form_constants.json';
 import APP_CONST from '../../utils/constants/app_contants.json';
 import { signIn } from '../../utils/api/UserService';
-import { setUserSession } from '../../utils/store/BrowserSession';
+import appStore from '../../utils/store/AppStore';
 
 const error = FORM_CONST.error;
 
 const initialState = {
-    showLoader: { flag: false, content: '' },
-    showMessage: {
-        flag: false,
-        icon: '',
-        topic: '',
-        content: ''
-    },
     sendingFlag: false,
     emailAddress: '',
-    password: ''
+    password: '',
+    globalStore: appStore.getAll()
 };
 
 export class Login extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            sendingFlag: false,
+            emailAddress: '',
+            password: '',
+            globalStore: appStore.getAll()
+        };
 
-        this.state = initialState;
-
+        this.onChange = this.onChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleModalClick = this.handleModalClick.bind(this);
     }
 
-    handleChange = (e, { name, value }) => {
-        if (this.state.sendingFlag) {
-            this.setState({ [name]: value, sendingFlag: false });
-        } else {
-            this.setState({ [name]: value });
-        }
+    onChange() {
+        this.setState({ globalStore: appStore.getAll() });
     }
 
-    handleModalClick() {
-        this.setState({ showMessage: { flag: false, content: '' } });
+    componentDidMount() {
+        appStore.addChangeListener(this.onChange);
+    }
+
+    componentWillUnmount() {
+        appStore.removeChangeListener(this.onChange);
+    }
+
+    handleChange = (e, { name, value }) => {
+        e.preventDefault();
+        this.state.sendingFlag ? this.setState({ [name]: value, sendingFlag: false }) :
+            this.setState({ [name]: value });
+    }
+
+    handleModalClick(e) {
+        appStore.setMessage({ flag: false });
+        // this.onChange();
     }
 
     fieldChecker() {
@@ -57,21 +65,18 @@ export class Login extends Component {
         const state = this.state;
 
         if (!this.fieldChecker()) {
-            this.setState({
-                sendingFlag: true,
-                showMessage: {
-                    flag: true, icon: 'edit',
-                    topic: error.emptyFields, content: error.fillEmptyFields
-                }
+            this.setState({ sendingFlag: true });
+            appStore.setMessage({
+                flag: true, icon: 'edit',
+                topic: error.emptyFields, content: error.fillEmptyFields
             });
         } else if (!emailRegex(state.emailAddress)) {
-            this.setState({
-                sendingFlag: true,
-                showMessage: {
-                    flag: true, icon: 'mail',
-                    topic: error.badEmail,
-                    content: error.emailAddress
-                }
+            this.setState({ sendingFlag: true });
+
+            appStore.setMessage({
+                flag: true, icon: 'mail',
+                topic: error.badEmail,
+                content: error.emailAddress
             });
         } else {
             this.httpCall(state);
@@ -79,10 +84,8 @@ export class Login extends Component {
     }
 
     httpCall(state) {
-        this.setState({
-            sendingFlag: true,
-            showLoader: { flag: true, content: APP_CONST.pleaseWaitWhileCompletion }
-        });
+        this.setState({ sendingFlag: true });
+        appStore.setLoader({ flag: true, content: APP_CONST.pleaseWaitWhileCompletion });
 
         const dataToBeSent = {
             email: state.emailAddress,
@@ -92,63 +95,49 @@ export class Login extends Component {
         signIn(dataToBeSent).then(res => {
             const resData = res.data;
             if (!resData.success) {
-                this.setState({
-                    showMessage: {
-                        flag: true, icon: 'exclamation triangle',
-                        topic: APP_CONST.oopsie, content: resData.message
-                    },
-                    showLoader: { flag: false, content: '' }
+                appStore.setLoader({ flag: false, content: '' });
+                appStore.setMessage({
+                    flag: true, icon: 'exclamation triangle',
+                    topic: APP_CONST.oopsie, content: resData.message
                 });
             } else {
-                setUserSession(res.data.message);
-                this.setState({ token: res.data.message })
+                appStore.setUserDetails(res.data.message);
                 this.setState(initialState);
             }
         }).catch(err => {
-            this.setState({
-                showLoader: { flag: false, content: '' },
-                showMessage: {
-                    flag: true, icon: 'exclamation triangle',
-                    topic: APP_CONST.oopsie, content: APP_CONST.defaultError
-                }
+            let messageText = APP_CONST.defaultError;
+            const responseData = err.response;
+            
+            if (responseData !== undefined && responseData.status === 400 && responseData.data !== undefined) {
+                messageText = responseData.data.message;
+            }
+            
+            appStore.setLoader({ flag: false, content: '' });
+            appStore.setMessage({
+                flag: true, icon: 'exclamation triangle',
+                topic: APP_CONST.oopsie, content: messageText
             });
         });
     }
 
-    DisplayElement = () => {
-        const state = this.state;
-
-        if (state.showMessage.flag) {
-            return <Message
-                iconName={state.showMessage.icon}
-                isOpen={state.showMessage.flag}
-                headingInfo={state.showMessage.topic}
-                message={state.showMessage.content}
-                handleModalClick={this.handleModalClick}
-            />;
-        } else if (state.showLoader.flag) {
-            return <PageLoader loaderInfo={state.showLoader.content} />;
-        } else {
-            return (
-                <div className='auth'>
-                    <RenderForm sendingFlag={state.sendingFlag} emailAddress={state.emailAddress}
-                        password={state.password} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-                </div>
-            );
-        }
-    }
-
     render() {
-        return <this.DisplayElement />;
+        const { sendingFlag, emailAddress, password, globalStore } = this.state;
+        return (
+            <div className='auth'>
+                <RenderForm sendingFlag={sendingFlag} emailAddress={emailAddress} password={password} messageFlag={globalStore.isMessaging.messageFlag} loadingFlag={globalStore.isLoading.flag}
+                    handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleModalClick={this.handleModalClick} />
+            </div>
+        );
     }
 }
 
 const RenderForm = props => {
-    const { sendingFlag, emailAddress, password, handleChange, handleSubmit } = props
+    const { sendingFlag, emailAddress, password, handleChange, messageFlag, loadingFlag, handleModalClick, handleSubmit } = props
     return (
         <Container>
             <DisplayFormWrapper headerIcon='sign-in' headerName={APP_CONST.signin}
-                formData={handleSubmit} buttonIcon='sign-in' submitButtonName={APP_CONST.signin}
+                submitButtonIcon='sign-in' messageFlag={messageFlag} loadingFlag={loadingFlag}
+                formData={handleSubmit} submitButtonName={APP_CONST.signin} handleModalClick={handleModalClick}
                 children={
                     <LoginForm sendingFlag={sendingFlag} emailAddress={emailAddress}
                         password={password} handleChange={handleChange} />

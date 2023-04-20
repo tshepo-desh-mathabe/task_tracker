@@ -1,7 +1,38 @@
+import React from 'react';
 import { Form, Button, Header, Icon } from 'semantic-ui-react';
+import Message from '../message/Message';
+import PageLoader from '../page_loader/PageLoader';
+import appStore from '../store/AppStore';
 import './Index.scss';
 
+
 export const DisplayFormWrapper = props => {
+    const { headerIcon, headerName, formData, children, submitButtonIcon, buttonIcon, submitButtonName, buttonName, handleButtonAction,
+        messageFlag, loadingFlag, allowSecondButton, handleModalClick } = props;
+
+    const loader = appStore.getLoader();
+    const message = appStore.getMessage();
+
+    if (messageFlag) {
+        return <Message
+            iconName={message.messageIcon}
+            isOpen={message.messageFlag}
+            headingInfo={message.messageTopic}
+            message={message.messageContent}
+            handleModalClick={handleModalClick}
+        />;
+    } else if (loadingFlag) {
+        return <PageLoader loaderInfo={loader.content} />;
+    } else {
+        return (
+            <PreFormWrapper headerIcon={headerIcon} headerName={headerName} formData={formData} children={children} submitButtonIcon={submitButtonIcon}
+                buttonIcon={buttonIcon} submitButtonName={submitButtonName} buttonName={buttonName} handleButtonAction={handleButtonAction} allowSecondButton={allowSecondButton}
+            />
+        );
+    }
+}
+
+const PreFormWrapper = props => {
 
     const { headerIcon, headerName, formData, children, submitButtonIcon, buttonIcon,
         submitButtonName, buttonName, handleButtonAction, allowSecondButton } = props;
@@ -22,7 +53,8 @@ export const DisplayFormWrapper = props => {
                     !allowSecondButton ?
                         <SubmitButtom submitButtonName={submitButtonName} submitButtonIcon={submitButtonIcon} />
                         :
-                        <div className='jj'>
+                        <div>
+                            <SubmitButtom submitButtonName={submitButtonName} submitButtonIcon={submitButtonIcon} />
                             <div style={{ display: 'inline-block' }}>
                                 <Form.Button type='button' animated inverted color='brown' onClick={handleButtonAction}>
                                     <Button.Content visible>{buttonName}</Button.Content>
@@ -31,8 +63,6 @@ export const DisplayFormWrapper = props => {
                                     </Button.Content>
                                 </Form.Button>
                             </div>
-
-                            <SubmitButtom submitButtonName={submitButtonName} submitButtonIcon={submitButtonIcon} />
                         </div>
                 }
             </Form>

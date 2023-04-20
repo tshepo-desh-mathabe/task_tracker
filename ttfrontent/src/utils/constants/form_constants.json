@@ -2,10 +2,27 @@
     "password": "Please enter password...",
     "label": {
         "email": "Email:",
-        "password": "Password:"
+        "password": "Password:",
+        "taskType": "Task Type:",
+        "dueDate": "Due Date:",
+        "dueTime": "Due Time:",
+        "taskId": "ID:",
+        "assignedTo": "Assigned To:",
+        "status": "Status Type:",
+        "priority": "Priority Level:",
+        "isBackend": "Is Backend",
+        "isDatabase": "Is Database",
+        "description": "Description",
+        "comments": "Comments"
     },
     "placeholder": {
-        "email": "john.peter@gmail.com"
+        "email": "john.peter@gmail.com",
+        "taskId": "######",
+        "dueDate": "DD-MM-YYYY",
+        "dueTime": "HH:MM",
+        "select": "Select",
+        "search": "Search...",
+        "more": "..."
     },
     "error": {
         "badEmail": "Bad Email Format...",

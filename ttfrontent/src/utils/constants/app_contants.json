@@ -21,9 +21,14 @@
     "screenResize": "resize",
     "allRightsReserved": "All Rights Reserved. Production By Tshepo",
     "signin": "Sign In",
+    "save": "Save",
     "createTask": "Create a Task",
-    "userSession": "USER_SESSION",
+    "loader": "LOADER",
     "pleaseWaitWhileCompletion": "Please wait until completion",
     "defaultError": "An error occured!\nPlease try again later...",
-    "oopsie": "Oopsie"
+    "oopsie": "Oopsie",
+    "flag": {
+        "deleteById": "DELETE_BY_ID",
+        "getById": "GET_BY_ID"
+    }
 }

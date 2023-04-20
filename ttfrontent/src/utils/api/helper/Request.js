@@ -4,7 +4,13 @@ import HTTP_CONST from '../../constants/api_constants.json';
 
 export const httpRequest = async (requestType, url, requestBody) => {
     const http = HTTP_CONST.httpRequestType;
-    const headers = new Headers({});
+    const headers = new Headers({
+        'Content-Type': 'application/json',
+    });
+
+    // if( getSecretToken() ) {
+    //     headers.append('Authorization', 'Bearer ' + getSecretToken() )
+    // }
 
     switch (requestType) {
         case http.get:

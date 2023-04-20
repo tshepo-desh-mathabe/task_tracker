@@ -1,8 +1,8 @@
 import APP_CONST from '../../utils/constants/app_contants.json';
-import AddTask from '../task/AddTask';
+import AddTask from '../task/add/AddTask';
 import './Footer.scss';
 
- 
+
 const Footer = () => {
     return (
         <footer>

@@ -3,24 +3,20 @@ import Footer from './components/footer/Footer';
 import NavigationBar from './components/navbar/NavigationBar';
 import AppRoutes from './utils/app_routes/AppRoutes';
 import { Login } from './components/login/Login';
-import { getSecretToken } from './utils/store/BrowserSession';
 import PATH from './utils/constants/route_path.json';
-import APP_CONST from './utils/constants/app_contants.json';
 import history from './utils/BrowserHistory';
 import { DisplayWrapper } from './utils/wrapper';
 import './App.scss';
+import appStore from './utils/store/AppStore';
 
 function App() {
-  const [token, setToken] = useState();
+  const [token, setToken] = useState(appStore.getUserToken());
 
   useEffect(() => {
-    const session = () => setToken(getSecretToken());
+    const session = () => setToken(appStore.getUserToken());
+    appStore.addChangeListener(session);
 
-    window.addEventListener(APP_CONST.userSession, session);
-
-    return () => {
-      window.removeEventListener(APP_CONST.userSession, session);
-    };
+    return () => appStore.removeChangeListener(session)
   });
 
   if (!token) {

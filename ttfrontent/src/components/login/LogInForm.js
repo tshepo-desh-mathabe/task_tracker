@@ -8,7 +8,7 @@ const placeholder = FORM_CONST.placeholder;
 const label = FORM_CONST.label;
 const error = FORM_CONST.error;
 
-export const LoginForm = props => {     
+export const LoginForm = props => {
     const { sendingFlag, emailAddress, password, handleChange } = props;
 
     return (

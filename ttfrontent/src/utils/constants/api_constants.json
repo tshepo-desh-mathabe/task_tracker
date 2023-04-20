@@ -1,15 +1,20 @@
 {
     "apiBaseUrl": "http://localhost:9095",
     "user": {
-        "base": "/auth",
+        "base": "/user",
         "signIn": "/sign-in",
-        "signOut": "/log-out",
-        "currentUser": "/current-logged"
+        "signOut": "/log-out"
     },
     "httpRequestType": {
         "get": "GET",
         "post": "POST",
         "put": "PUT",
         "delete": "DELETE"
+    },
+    "general": {
+        "save": "/save",
+        "getAll": "/get-all",
+        "deleteAll": "/delete-all",
+        "edit": "/edit"
     }
 }

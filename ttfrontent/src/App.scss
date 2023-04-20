@@ -1,6 +1,7 @@
 @import "./utils/sass/index.scss";
 
-.desktop-body-content, .mobile-body-content {
+.desktop-body-content,
+.mobile-body-content {
   background-color: $backgroundColor;
   min-height: 100vh;
   // display: flex;
@@ -15,28 +16,4 @@
 // Semantic UI has this set to 5em
 .ui.container {
   margin-top: 0 !important;
-}
-
-// global input color
-.ui.input>input {
-  background: $backgroundColor;
-  color: white !important;
-  border-color: #00000000 !important
-}
-
-.ui.input {
-  color: white !important;
-}
-
-.modals.dimmer .ui.scrolling.modal {
-  right: 0px !important;
-  background: transparent !important;
-}
-
-.ui.modal {
-  box-shadow: none !important;
-}
-
-.ui.modal>.content {
-  background: $darkerBrown;
 }

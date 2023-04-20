@@ -20,7 +20,77 @@ code {
   color: white !important;
 }
 
+::-webkit-scrollbar-thumb {
+  background: $backgroundColor;
+}
+
 .ui.form .field>label {
   color: $backgroundColor;
   font-size: medium !important;
+}
+
+.ui.input>input,
+.ui.dropdown .menu,
+.ui.selection.dropdown,
+.ui.form textarea {
+  background: $backgroundColor;
+  color: white !important;
+  border-color: #00000000 !important
+}
+
+.ui.checkbox label, .ui.checkbox label:before, .ui.checkbox label:after {
+  color: $backgroundColor;
+  border: $backgroundColor;
+}
+
+.ui.toggle.checkbox label:after, .ui.toggle.checkbox label::before {
+  color: white !important;
+}
+
+.ui.toggle.checkbox input[type=checkbox]:checked~label {
+  color: white!important;
+}
+
+.ui.checkbox input:focus~label {
+  color: $backgroundColor;
+}
+
+.ui.toggle.checkbox input[type=checkbox]:checked~label::before,
+.ui.toggle.checkbox input[type=checkbox]:checked:focus~label::before {
+  background: $backgroundColor;
+}  
+
+.ui.toggle.checkbox label:before {
+  background: #8475452e !important;
+}
+
+.ui.input {
+  color: white !important;
+}
+
+.ui.selection.dropdown .menu>.item {
+  border-top: $darkerBrown;
+}
+
+.ui.dropdown .menu .selected.item,
+.ui.dropdown.selected {
+  background-color: $goldish;
+  color: $darkerBrown;
+}
+
+.modals.dimmer .ui.scrolling.modal {
+  right: 0px !important;
+  background: transparent !important;
+}
+
+.ui.modal {
+  box-shadow: none !important;
+}
+
+.ui.modal>.content {
+  background: $darkerBrown;
+}
+
+span.text {
+  color: white !important;
 }

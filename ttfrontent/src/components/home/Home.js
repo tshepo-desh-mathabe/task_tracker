@@ -1,3 +1,12 @@
+import appStore from "../../utils/store/AppStore"
+
 export function Home() {
-    return <span>Home</span>
+    appStore.setLoader({ flag: false, content: '' });
+    console.log('--->>>>');
+    return (
+    <>
+        {console.log('hello baby')}
+        <span>Home</span>
+        </>
+    );
 }
