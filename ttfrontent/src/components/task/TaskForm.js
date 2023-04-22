@@ -175,7 +175,7 @@ const DisplayHelper = props => {
     const { elem1, elem2, elem3 } = props;
 
     return (
-        <Grid columns={3}>
+        <Grid columns={3}stackable>
             <Grid.Row>
                 <Grid.Column>
                     {elem1}

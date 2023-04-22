@@ -36,6 +36,7 @@ class AppStore extends EventEmitter {
 
     setUserDetails(payload) {
         this.data.user = payload;
+        this.emit(name);
     }
 
     setLoader(data) {

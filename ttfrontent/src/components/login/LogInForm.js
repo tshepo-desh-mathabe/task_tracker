@@ -24,6 +24,7 @@ export const LoginForm = props => {
                     content: error.emailAddress
                 }}
             />
+            
             <Form.Field
                 control={Input}
                 type='password'

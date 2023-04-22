@@ -10,7 +10,7 @@ import './App.scss';
 import appStore from './utils/store/AppStore';
 
 function App() {
-  const [token, setToken] = useState(appStore.getUserToken());
+  const [token, setToken] = useState();
 
   useEffect(() => {
     const session = () => setToken(appStore.getUserToken());
@@ -18,7 +18,7 @@ function App() {
 
     return () => appStore.removeChangeListener(session)
   });
-
+  
   if (!token) {
     history.push(PATH.signIn);
     return (

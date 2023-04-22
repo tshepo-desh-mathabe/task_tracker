@@ -72,7 +72,6 @@ export class Login extends Component {
             });
         } else if (!emailRegex(state.emailAddress)) {
             this.setState({ sendingFlag: true });
-
             appStore.setMessage({
                 flag: true, icon: 'mail',
                 topic: error.badEmail,
@@ -107,11 +106,11 @@ export class Login extends Component {
         }).catch(err => {
             let messageText = APP_CONST.defaultError;
             const responseData = err.response;
-            
+
             if (responseData !== undefined && responseData.status === 400 && responseData.data !== undefined) {
                 messageText = responseData.data.message;
             }
-            
+
             appStore.setLoader({ flag: false, content: '' });
             appStore.setMessage({
                 flag: true, icon: 'exclamation triangle',
