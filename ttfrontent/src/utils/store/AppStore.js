@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events';
-import dispatcher from "./AppDispatcher";
+import dispatcher from './AppDispatcher';
 import STORE_CONST from '../constants/store_constants.json';
 
 const name = 'CHANGE';

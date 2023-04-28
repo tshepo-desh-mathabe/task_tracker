@@ -5,6 +5,9 @@
         "signIn": "/sign-in",
         "signOut": "/log-out"
     },
+    "flagOption": {
+        "base": "/flag-options"
+    },
     "httpRequestType": {
         "get": "GET",
         "post": "POST",

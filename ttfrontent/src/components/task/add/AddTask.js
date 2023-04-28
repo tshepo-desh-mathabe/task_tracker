@@ -3,26 +3,12 @@ import { Button, Icon, Modal } from 'semantic-ui-react';
 import { DisplayFormWrapper } from '../../../utils/wrapper';
 import TaskForm from '../TaskForm';
 import APP_CONST from '../../../utils/constants/app_contants.json';
+import { getAllFlagOptions } from '../../../utils/api/FlagOptionsService';
 
 const initialState = {
-    isOpen: false,
-    dimmer: undefined,
-    sendingFlag: false,
-    taskId: '',
-    taskType: '',
-    statusType: '',
-    priorityLevel: '',
-    search: '',
-    assignedTo: '',
-    tasks: [],
-    statuses: [],
-    priorities: [],
-    dueDate: '',
-    dueTime: '',
-    isBackend: false,
-    isDatabase: false,
-    description: '',
-    comments: ''
+    isOpen: false, dimmer: undefined, sendingFlag: false, taskId: '', taskType: '', statusType: '', priorityLevel: '',
+    search: '', assignedTo: '', tasks: [], statuses: [], priorities: [], dueDate: '', dueTime: '', isBackend: false,
+    isDatabase: false, description: '', comments: ''
 }
 
 export default class AddTask extends Component {
@@ -33,6 +19,13 @@ export default class AddTask extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
+    }
+
+    componentDidMount() {
+        getAllFlagOptions().then(res => {
+            console('res::', res);
+        }, 
+        err => console.log('err::', err));
     }
 
     handleChange = (e, data) => {

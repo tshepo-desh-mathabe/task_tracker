@@ -24,7 +24,7 @@ const TaskForm = props => {
                 elem1={
                     <Form.Field
                         control={Input}
-                        type="number"
+                        type='number'
                         label={label.taskId}
                         placeholder={placeholder.taskId}
                         name='taskId'
